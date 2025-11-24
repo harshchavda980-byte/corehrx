@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM — Sales & Customer Management | CoreHRX</title>
+
+<style>
+/* ---------- GLOBAL THEME ---------- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.neon {
+  color: #0aff9d;
+  text-shadow: 0 0 12px #0aff9d;
+}
+
+h1,h2 { margin: 0 0 12px; font-weight: 600; }
+
+p.sub {
+  color: #bbb;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+.hero h1 { font-size: 48px; }
+
+.hero p {
+  max-width: 700px;
+  margin: 16px auto 24px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background: #0aff9d;
+  color: #000;
+  padding: 14px 36px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #06d880;
+  box-shadow: 0 0 18px rgba(10,255,157,0.4);
+}
+
+/* FEATURES */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 28px;
+}
+
+.card {
+  background: rgba(255,255,255,0.06);
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #0aff9d;
+  transform: translateY(-6px);
+  box-shadow: 0 0 18px rgba(10,255,157,0.3);
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.pricing-box {
+  background: rgba(255,255,255,0.05);
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.price {
+  font-size: 42px;
+  font-weight: 700;
+  color: #0aff9d;
+  margin: 8px 0 18px;
+}
+
+.small { color: #aaa; }
+
+@media(max-width: 768px){
+  h1 { font-size: 36px; }
+  .hero { padding: 50px 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 class="neon">CoreHRX CRM</h1>
+  <p>
+    Powerful CRM designed for Indian businesses to manage leads, sales pipelines,
+    customer communication & performance — faster than ever.
+  </p>
+
+  <button class="cta-btn" onclick="window.location.href='contact.html'">
+    Request Demo
+  </button>
+</div>
+
+<!-- FEATURES -->
+<div class="container">
+
+  <div class="section-title">
+    <h2 class="neon">Key Features</h2>
+    <p class="sub">Make your sales team unstoppable.</p>
+  </div>
+
+  <div class="features-grid">
+
+    <div class="card">
+      <h3>Lead Management</h3>
+      <p>Capture, assign and track leads from multiple sources in real-time.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sales Pipeline</h3>
+      <p>Custom stages, deal tracking, reminders & performance insights.</p>
+    </div>
+
+    <div class="card">
+      <h3>Team Performance</h3>
+      <p>Track conversions, follow-ups and productivity analytics.</p>
+    </div>
+
+    <div class="card">
+      <h3>Client Management</h3>
+      <p>Store customer data, documents, history & communication logs.</p>
+    </div>
+
+    <div class="card">
+      <h3>Auto Follow-Ups</h3>
+      <p>Smart reminders & notifications so no deal is ever missed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Reports & Insights</h3>
+      <p>Revenue forecast, deal aging, funnel reports and export options.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="container" style="margin-top:80px;">
+  <div class="section-title">
+    <h2 class="neon">Simple Pricing</h2>
+    <p class="sub">Pay only for your sales users.</p>
+  </div>
+
+  <div class="pricing-box">
+    <div class="price">₹99<span class="small"> / user / month</span></div>
+    <p class="sub">Includes complete CRM suite + reports + automation.</p>
+
+    <button class="cta-btn" onclick="window.location.href='contact.html'">
+      Get Pricing Brochure
+    </button>
+  </div>
+</div>
+
+</body>
+</html>
