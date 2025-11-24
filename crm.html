@@ -1,203 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRM — Sales & Customer Management | CoreHRX</title>
-
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CRM — CoreHRX</title>
+<meta name="description" content="CoreHRX CRM" />
 <style>
-/* ---------- GLOBAL THEME ---------- */
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #000;
-  color: #fff;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 20px;
-}
-
-.neon {
-  color: #0aff9d;
-  text-shadow: 0 0 12px #0aff9d;
-}
-
-h1,h2 { margin: 0 0 12px; font-weight: 600; }
-
-p.sub {
-  color: #bbb;
-  font-size: 18px;
-  margin-bottom: 40px;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 80px 0 40px;
-}
-
-.hero h1 { font-size: 48px; }
-
-.hero p {
-  max-width: 700px;
-  margin: 16px auto 24px;
-  color: #aaa;
-  line-height: 1.6;
-}
-
-.cta-btn {
-  background: #0aff9d;
-  color: #000;
-  padding: 14px 36px;
-  font-size: 18px;
-  border-radius: 14px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.cta-btn:hover {
-  background: #06d880;
-  box-shadow: 0 0 18px rgba(10,255,157,0.4);
-}
-
-/* FEATURES */
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 28px;
-}
-
-.card {
-  background: rgba(255,255,255,0.06);
-  padding: 28px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
-}
-
-.card:hover {
-  border-color: #0aff9d;
-  transform: translateY(-6px);
-  box-shadow: 0 0 18px rgba(10,255,157,0.3);
-}
-
-.card h3 {
-  margin: 0 0 12px;
-  font-size: 22px;
-}
-
-.pricing-box {
-  background: rgba(255,255,255,0.05);
-  width: 600px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 20px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.price {
-  font-size: 42px;
-  font-weight: 700;
-  color: #0aff9d;
-  margin: 8px 0 18px;
-}
-
-.small { color: #aaa; }
-
-@media(max-width: 768px){
-  h1 { font-size: 36px; }
-  .hero { padding: 50px 0; }
-}
+/* paste same inline CSS block from index.html */
+:root{--bg:#030309;--card:#0b0b0d;--neon:#00ffd5;--accent:#8b5cf6;--muted:#9aa0a6;--glass: rgba(255,255,255,0.03);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#020205,#061018);color:#e6eef6;scroll-behavior:smooth}
+a{color:var(--neon);text-decoration:none}
+header{position:fixed;top:0;left:0;right:0;z-index:999;transition:background .28s;padding:14px 28px}
+header.solid{background:rgba(10,12,15,0.86);backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(1,2,6,0.6)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:64px;height:auto;border-radius:10px}
+.brand .name{font-weight:700}
+.nav{display:flex;gap:12px;align-items:center}
+.nav a{color:rgba(230,238,246,0.9);font-weight:600;padding:8px 10px;border-radius:8px;transition:.18s}
+.nav a:hover{background:rgba(255,255,255,0.03)}
+.cta{background:linear-gradient(90deg,var(--neon),var(--accent));color:#001;padding:9px 14px;border-radius:10px;font-weight:800}
+.dropdown{position:relative}
+.trigger{cursor:pointer;padding:8px 10px;border-radius:8px;color:rgba(230,238,246,0.9);font-weight:600;background:transparent;border:none}
+.menu{position:absolute;top:100%;left:0;min-width:200px;padding:8px;border-radius:12px;background:rgba(10,12,15,0.65);backdrop-filter:blur(12px);border:1px solid rgba(0,255,213,0.12);box-shadow:0 12px 40px rgba(0,255,213,0.08);display:none;z-index:60}
+.menu a{display:block;padding:10px 14px;color:#e6eef6}
+.dropdown:hover .menu,.dropdown.open .menu,.dropdown:focus-within .menu{display:block}
+.menu a:hover{background:rgba(0,255,213,0.06);color:var(--neon);padding-left:18px}
+.center-block{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:120px;text-align:center}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+footer{margin-top:60px;padding:36px 24px;text-align:center;color:var(--muted);font-size:14px}
+.fade-up{opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s}
+.fade-up.visible{opacity:1;transform:none}
 </style>
 </head>
-
 <body>
+<header id="site-header">
+  <div class="nav-inner"><div class="brand"><img src="/mnt/data/A_digital_vector_graphic_features_the_logo_of_Core.png" alt="CoreHRX"><div class="name">CoreHRX</div></div>
+    <nav class="nav"><a href="index.html">Home</a><div class="dropdown"><button class="trigger">Products ▾</button><div class="menu"><a href="myco.html">MyCo</a><a href="crm.html">CRM</a></div></div><a href="services.html">Services</a><div class="dropdown"><button class="trigger">Careers ▾</button><div class="menu"><a href="careers.html#developer">Developer</a><a href="careers.html#sales">Sales</a></div></div><div class="dropdown"><button class="trigger">About ▾</button><div class="menu"><a href="about.html">About Company</a><a href="about.html#life">Life at CoreHRX</a></div></div><a href="contact.html">Contact</a><a class="cta" href="contact.html">Request Demo</a></nav></div>
+</header>
 
-<!-- HERO -->
-<div class="hero">
-  <h1 class="neon">CoreHRX CRM</h1>
-  <p>
-    Powerful CRM designed for Indian businesses to manage leads, sales pipelines,
-    customer communication & performance — faster than ever.
-  </p>
+<main>
+  <section class="center-block fade-up">
+    <h1>CRM — Leads & Sales</h1>
+    <p style="max-width:760px;color:var(--muted)">Simple CRM to capture leads, follow-ups, pipeline and reports — designed for sales teams.</p>
+  </section>
 
-  <button class="cta-btn" onclick="window.location.href='contact.html'">
-    Request Demo
-  </button>
-</div>
-
-<!-- FEATURES -->
-<div class="container">
-
-  <div class="section-title">
-    <h2 class="neon">Key Features</h2>
-    <p class="sub">Make your sales team unstoppable.</p>
-  </div>
-
-  <div class="features-grid">
-
-    <div class="card">
-      <h3>Lead Management</h3>
-      <p>Capture, assign and track leads from multiple sources in real-time.</p>
+  <section style="max-width:1100px;margin:28px auto;padding:0 24px">
+    <div class="card fade-up">
+      <h3>Key CRM features</h3>
+      <ul style="color:var(--muted)">
+        <li>Lead capture & assignment</li>
+        <li>Pipeline stages & follow-ups</li>
+        <li>Reports & exports</li>
+      </ul>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Sales Pipeline</h3>
-      <p>Custom stages, deal tracking, reminders & performance insights.</p>
-    </div>
+  <footer><div style="max-width:1100px;margin:24px auto;padding:16px;color:var(--muted);text-align:center">© CoreHRX Pvt Ltd • Ahmedabad • <a href="mailto:info@corehrx.in">info@corehrx.in</a></div></footer>
+</main>
 
-    <div class="card">
-      <h3>Team Performance</h3>
-      <p>Track conversions, follow-ups and productivity analytics.</p>
-    </div>
-
-    <div class="card">
-      <h3>Client Management</h3>
-      <p>Store customer data, documents, history & communication logs.</p>
-    </div>
-
-    <div class="card">
-      <h3>Auto Follow-Ups</h3>
-      <p>Smart reminders & notifications so no deal is ever missed.</p>
-    </div>
-
-    <div class="card">
-      <h3>Reports & Insights</h3>
-      <p>Revenue forecast, deal aging, funnel reports and export options.</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- PRICING -->
-<div class="container" style="margin-top:80px;">
-  <div class="section-title">
-    <h2 class="neon">Simple Pricing</h2>
-    <p class="sub">Pay only for your sales users.</p>
-  </div>
-
-  <div class="pricing-box">
-    <div class="price">₹99<span class="small"> / user / month</span></div>
-    <p class="sub">Includes complete CRM suite + reports + automation.</p>
-
-    <button class="cta-btn" onclick="window.location.href='contact.html'">
-      Get Pricing Brochure
-    </button>
-  </div>
-</div>
-
-</body>
-</html>
+<script>
+const header=document.getElementById('site-header');window.addEventListener('scroll',()=>{ if(window.scrollY>20) header.classList.add('solid'); else header.classList.remove('solid'); });
+document.querySelectorAll('.fade-up').forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),200+i*120));
+</script>
+</body></html>
