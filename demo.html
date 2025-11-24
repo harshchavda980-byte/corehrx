@@ -5,38 +5,170 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home | CHL Group</title>
   <style>
-    body { margin:0; font-family:Arial, sans-serif; }
-    header { background:#0a0a23; padding:15px 40px; display:flex; justify-content:space-between; align-items:center; color:#fff; }
-    header .logo { font-size:24px; font-weight:bold; }
-    nav ul { list-style:none; display:flex; gap:25px; margin:0; padding:0; }
-    nav ul li a { color:#fff; text-decoration:none; font-weight:500; }
+    /* === STYLISH NAVBAR UPGRADE === */
 
-    .hero { background:#f2f2f2; padding:70px 40px; text-align:center; }
-    .hero h1 { font-size:42px; margin:0; }
-    .hero p { font-size:18px; margin:20px 0; }
-    .btn { display:inline-block; background:#0a0a23; color:#fff; padding:12px 25px; border-radius:6px; text-decoration:none; }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 18px 36px;
+  transition: 0.35s ease;
+}
 
-    .section { padding:60px 40px; }
-    .section h2 { text-align:center; margin-bottom:30px; font-size:32px; }
+header.transparent {
+  background: transparent;
+}
 
-    footer { background:#0a0a23; color:#fff; padding:40px; text-align:center; margin-top:40px; }
+header.solid {
+  background: rgba(10, 12, 15, 0.72);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0, 255, 213, 0.1);
+  border-bottom: 1px solid rgba(0, 255, 213, 0.07);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-left a,
+.menu-right a {
+  color: rgba(230, 238, 246, 0.88);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  position: relative;
+  transition: 0.25s ease;
+}
+
+.menu-left a:hover,
+.menu-right a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--neon);
+  box-shadow: 0 0 14px rgba(0, 255, 213, 0.4);
+}
+
+/* Neon underline on hover */
+.menu-left a::after,
+.menu-right a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 2px;
+  background: var(--neon);
+  transition: 0.25s ease;
+  transform: translateX(-50%);
+}
+
+.menu-left a:hover::after,
+.menu-right a:hover::after {
+  width: 60%;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  min-width: 170px;
+  background: rgba(15, 18, 24, 0.96);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 255, 213, 0.14);
+  border-radius: 12px;
+  padding: 8px 0;
+  display: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: 0.25s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: #e6eef6;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+/* Neon glow on dropdown items */
+.dropdown-menu a:hover {
+  background: rgba(0, 255, 213, 0.08);
+  color: var(--neon);
+}
+
+/* Dropdown animation */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Active page highlight */
+a.active {
+  color: var(--neon) !important;
+  font-weight: 700;
+}
+
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header>
-    <div class="logo">CHL Group</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="hrms.html">HRMS</a></li>
-        <li><a href="payroll.html">Payroll</a></li>
-        <li><a href="crm.html">CRM</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header class="transparent" id="site-header">
+  <div class="nav-inner">
+
+    <!-- LEFT MENU -->
+    <div class="menu-left">
+      <div class="dropdown">
+        <a href="products.html">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="myco.html">MyCo</a>
+          <a href="crm.html">CRM</a>
+        </div>
+      </div>
+
+      <a href="services.html">Services</a>
+    </div>
+
+    <div></div>
+
+    <!-- RIGHT MENU -->
+    <div class="menu-right">
+      <div class="dropdown">
+        <a href="careers.html">Hirings ▾</a>
+        <div class="dropdown-menu">
+          <a href="careers.html#developer">Developer</a>
+          <a href="careers.html#sales">Sales</a>
+          <a href="careers.html#support">Support</a>
+          <a href="careers.html#implementation">Implementation</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="about.html">About Us ▾</a>
+        <div class="dropdown-menu">
+          <a href="about.html">About Company</a>
+          <a href="about.html#life">Life at CoreHRX</a>
+        </div>
+      </div>
+
+      <a href="contact.html">Contact</a>
+    </div>
+
+  </div>
+</header>
+
 
   <!-- HOME HERO -->
   <section class="hero">
