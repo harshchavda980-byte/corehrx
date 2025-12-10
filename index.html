@@ -7,17 +7,16 @@
   <meta name="description" content="MineHR — Modern HRMS & Payroll SaaS" /> 
   <style>
     :root{
-      --bg:#030309;
-      --card:#0b0b0d;
-      --neon:#00ffd5;
-      --accent:#8b5cf6;
-      --muted:#9aa0a6;
-      --glass: rgba(255,255,255,0.03);
-      --text:#e6eef6;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
+  --bg:#0A0A0F;
+  --card:#111217;
+  --neon:#4BEBD1;     /* softer aqua */
+  --accent:#8B5CF6;   /* luxury purple */
+  --muted:#ADB3BA;
+  --glass: rgba(255,255,255,0.04);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#020205 0%, #061018 100%);color:var(--text);scroll-behavior:smooth;}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#05050A 0%, #0A0F14 100%);color:var(--text);scroll-behavior:smooth;}
     a{color:var(--neon);text-decoration:none}
 
     /* NAV */
@@ -42,7 +41,9 @@
 
     /* animated headline */
     .headline{margin-top:18px;font-size:46px;line-height:1.02;font-weight:700;max-width:920px;overflow-wrap:break-word}
-    .headline .typed{color:var(--neon);}
+    .headline .typed {
+  text-shadow: 0 0 14px rgba(75, 235, 209, 0.5);
+}
     .lead{margin-top:18px;color:var(--muted);max-width:760px;font-size:16px}
 
     /* two columns below hero */
@@ -51,6 +52,10 @@
     .features{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
     .feature{display:flex;gap:12px;align-items:flex-start}
     .dot{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--neon),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;color:#001}
+    .dot {
+  box-shadow: 0 4px 16px rgba(75, 235, 209, 0.2);
+}
+
 
     /* footer */
     footer{margin-top:60px;padding:36px 24px;text-align:center;color:var(--muted);font-size:14px}
@@ -69,7 +74,7 @@
 .dropdown-menu {
   position: absolute; top: 100%; left: 0; min-width: 200px; padding: 10px 0; border-radius: 14px;
   background: rgba(10, 12, 15, 0.65); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 255, 213, 0.18); box-shadow: 0 12px 40px rgba(0, 255, 213, 0.15);
+  border: 1px solid rgba(75, 235, 209, 0.25); box-shadow: 0 12px 40px rgba(75, 235, 209, 0.22);
   display: none; animation: fadeInNeon 0.25s ease-out; z-index: 999;
 }
 .dropdown-menu a { display:block; padding:10px 18px; color: var(--text); font-size:14px; font-weight:500; transition:0.25s ease; }
@@ -139,6 +144,7 @@
     .btn-primary {
       display:inline-block;
       background: linear-gradient(90deg, var(--neon), var(--accent));
+    
       color: #001;
       padding: 12px 18px;
       border-radius: 10px;
@@ -151,7 +157,9 @@
       display:inline-flex; align-items:center; gap:8px;
     }
     .btn-primary:hover {
-      transform: translateY(-4px);
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+      transition: 0.25s ease;
       box-shadow: 0 18px 50px rgba(0,255,213,0.18), 0 6px 18px rgba(139,92,246,0.08);
     }
     /* Neon outline animated */
