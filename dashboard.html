@@ -1,212 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Mine-HR Dashboard</title>
-
-<style>
-:root{
-  --primary:#0B5ED7;
-  --primary-soft:#E9F1FF;
-  --bg:#F6F9FC;
-  --card:#ffffff;
-  --text:#0F172A;
-  --muted:#64748B;
-  --border:#E2E8F0;
-  font-family: Inter, system-ui, sans-serif;
-}
-
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-}
-
-/* TOP BAR */
-.topbar{
-  height:60px;
-  background:#fff;
-  border-bottom:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-.topbar h1{
-  font-size:16px;
-  margin:0;
-  color:var(--primary);
-}
-
-/* LAYOUT */
-.wrapper{
-  display:flex;
-}
-
-/* SIDEBAR */
-.sidebar{
-  width:240px;
-  background:#fff;
-  border-right:1px solid var(--border);
-  min-height:100vh;
-  padding:16px;
-}
-.sidebar a{
-  display:block;
-  padding:12px;
-  margin-bottom:6px;
-  border-radius:8px;
-  color:var(--text);
-  font-weight:500;
-}
-.sidebar a:hover,
-.sidebar a.active{
-  background:var(--primary-soft);
-  color:var(--primary);
-}
-
-/* MAIN */
-.main{
-  flex:1;
-  padding:16px;
-}
-
-/* CARDS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-}
-.card{
-  background:var(--card);
-  border-radius:14px;
-  padding:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.04);
-}
-.card h3{
-  margin:0;
-  font-size:14px;
-  color:var(--muted);
-}
-.card strong{
-  font-size:26px;
-  color:var(--primary);
-}
-
-/* TABLE */
-.table-wrap{
-  margin-top:24px;
-  background:#fff;
-  border-radius:14px;
-  overflow:auto;
-}
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:500px;
-}
-th,td{
-  padding:14px;
-  border-bottom:1px solid var(--border);
-  font-size:14px;
-  text-align:left;
-}
-th{
-  background:var(--primary-soft);
-  color:var(--primary);
-}
-
-/* MOBILE FIX */
-@media(max-width:900px){
-  .sidebar{
-    display:none;
-  }
-  .wrapper{
-    flex-direction:column;
-  }
-  .topbar h1{
-    font-size:14px;
-  }
-}
-</style>
+<meta charset="UTF-8">
+<title>Dashboard | Mine-HR</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <h1>Mine-HR Dashboard</h1>
-  <span style="font-size:14px;color:var(--muted)">Admin</span>
-</div>
+<section class="hero">
+  <h1>Dashboard</h1>
+  <p>Employees • Payroll • Attendance</p>
 
-<div class="wrapper">
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <a class="active">Dashboard</a>
-    <a>Employees</a>
-    <a>Attendance</a>
-    <a>Payroll</a>
-    <a>Leave</a>
-    <a>Settings</a>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main">
-
-    <!-- STATS -->
-    <div class="cards">
-      <div class="card">
-        <h3>Total Employees</h3>
-        <strong>124</strong>
-      </div>
-      <div class="card">
-        <h3>Present Today</h3>
-        <strong>110</strong>
-      </div>
-      <div class="card">
-        <h3>Pending Leaves</h3>
-        <strong>6</strong>
-      </div>
-      <div class="card">
-        <h3>Payroll Status</h3>
-        <strong>Processed</strong>
-      </div>
-    </div>
-
-    <!-- TABLE -->
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Employee</th>
-            <th>Department</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Rahul Sharma</td>
-            <td>HR</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Anita Patel</td>
-            <td>Finance</td>
-            <td>Leave</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </main>
-</div>
+  <div style="display:grid;gap:16px;max-width:600px;">
+    <div class="card">👥 Employees: 120</div>
+    <div class="card">💰 Payroll Status: Processed</div>
+    <div class="card">📅 Attendance: Live</div>
+  </div>
+</section>
 
 </body>
 </html>
