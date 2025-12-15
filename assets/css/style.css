@@ -1,4 +1,4 @@
-:root {
+/*:root {
   --blue: #1f6feb;
   --blue-light: #eaf2ff;
   --dark: #0b1b33;
@@ -18,7 +18,7 @@ body {
   color: var(--text);
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR ================= 
 .navbar {
   position: sticky;
   top: 0;
@@ -73,7 +73,7 @@ body {
   border-radius: 6px;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO ================= 
 .hero {
   background: linear-gradient(180deg, #ffffff, #f6f9ff);
   padding: 80px 20px;
@@ -145,14 +145,14 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-/* ================= TRUST ================= */
+/* ================= TRUST ================= 
 .trust {
   text-align: center;
   padding: 30px;
   color: #6b7280;
 }
 
-/* ================= FEATURES ================= */
+/* ================= FEATURES ================= 
 .features {
   padding: 80px 20px;
   text-align: center;
@@ -173,7 +173,7 @@ body {
   border: 1px solid #eee;
 }
 
-/* ================= WHY ================= */
+/* ================= WHY ================= 
 .why {
   background: #f9fafb;
   padding: 70px 20px;
@@ -188,7 +188,7 @@ body {
   gap: 20px;
 }
 
-/* ================= CTA ================= */
+/*================= CTA ================= 
 .cta {
   padding: 80px 20px;
   text-align: center;
@@ -200,15 +200,15 @@ body {
   margin: 14px 0 24px;
 }
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER =================
 footer {
   text-align: center;
   padding: 20px;
   font-size: 14px;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 900px) {
+================= MOBILE ================= */
+/*@media (max-width: 900px) {
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
@@ -216,5 +216,206 @@ footer {
 
   .hero-actions {
     justify-content: center;
+  }*/
+  
+  /* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand img {
+  height: 36px;   /* ✅ FIXED LOGO SIZE */
+  width: auto;
+}
+
+.brand span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+/* NAV LINKS */
+.nav-links a {
+  margin: 0 14px;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #1d4ed8;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.nav-btn {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.nav-btn:hover {
+  background: #1e40af;
+}
+
+.primary {
+  background: #1d4ed8;
+  color: white;
+}
+
+.primary:hover {
+  background: #1e40af;
+}
+
+.outline {
+  border: 2px solid #1d4ed8;
+  color: #1d4ed8;
+}
+
+.outline:hover {
+  background: #1d4ed8;
+  color: white;
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding: 90px 20px;
+  background: linear-gradient(to bottom, #f8fbff, #ffffff);
+  text-align: center;
+}
+
+.hero-container {
+  max-width: 850px;
+  margin: auto;
+}
+
+.pill {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #1d4ed8;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: #4b5563;
+  margin-bottom: 35px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ================= FEATURES ================= */
+.features {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 34px;
+  margin-bottom: 50px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ================= CTA ================= */
+.cta {
+  background: #1d4ed8;
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.cta p {
+  margin: 15px 0 30px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0f172a;
+  color: #cbd5f5;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 36px;
   }
 }
