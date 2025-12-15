@@ -12,28 +12,34 @@ body {
   line-height: 1.6;
 }
 
-/* ================= NAVBAR ================= */
+
+/* ========== NAVBAR ========== */
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
   background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 72px;
+  padding: 14px 64px;
   border-bottom: 1px solid #eef2f7;
 }
 
-/* Left side (logo) */
+/* Logo + Brand */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
 }
 
 .logo-img {
-  height: 34px;     /* FIXED logo size */
+  height: 36px;   /* Increased size for visibility */
   width: auto;
   display: block;
 }
@@ -44,11 +50,11 @@ body {
   color: #2563eb;
 }
 
-/* Right side (menu) */
+/* Navigation Links */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
 }
 
 .navbar-right a {
@@ -67,13 +73,28 @@ body {
 .nav-btn {
   padding: 10px 18px;
   background: #2563eb;
-  color: #ffffff !important;
+  color: white !important;
   border-radius: 8px;
   font-weight: 600;
 }
 
 .nav-btn:hover {
   background: #1d4ed8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .logo-img {
+    height: 28px;
+  }
+
+  .navbar-right {
+    gap: 18px;
+    }
 }
 
 /* ================= HERO SECTION ================= */
