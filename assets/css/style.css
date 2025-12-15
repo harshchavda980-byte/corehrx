@@ -1,4 +1,15 @@
-  /* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+  /* =================RESET ================= */
 * {
   margin: 0;
   padding: 0;
