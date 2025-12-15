@@ -46,8 +46,10 @@ body {
 
 /* HERO */
 .hero {
+  padding: 120px 20px 100px;
   text-align: center;
-  padding: 80px 20px;
+  background:
+    radial-gradient(circle at top, #eaf2ff 0%, #ffffff 60%);
 }
 
 .pill {
@@ -61,12 +63,20 @@ body {
 }
 
 .hero-title {
-  font-size: 42px;
-  margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0f172a;
+  animation: fadeUp 0.8s ease forwards;
 }
 
-.highlight {
+.hero-title .highlight {
   color: #2563eb;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-sub {
@@ -79,8 +89,17 @@ body {
   margin-top: 30px;
 }
 .hero-logo img {
-  max-width: 160px;
+  width: 80px;       /* desktop */
+  max-width: 100%;
   height: auto;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .hero-logo img {
+    width: 60px;     /* mobile */
+  }
 }
 
 /* BUTTONS */
@@ -92,16 +111,21 @@ body {
   margin: 5px;
 }
 
-.primary {
+.btn.primary {
   background: #2563eb;
   color: white;
-  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 12px 24px rgba(37,99,235,0.25);
 }
 
-.outline {
-  background: transparent;
-  border: 1px solid #2563eb;
+.btn.outline {
+  border: 1.5px solid #2563eb;
   color: #2563eb;
+  padding: 14px 28px;
+  border-radius: 10px;
+  margin-left: 12px;
 }
 
 /* FEATURES */
@@ -133,6 +157,15 @@ body {
   border-radius: 14px;
   border: 1px solid #e5e7eb;
 }
+.feature {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
 
 /* WHY */
 .why {
@@ -141,17 +174,25 @@ body {
 
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  text-align: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
 }
+
+.why-item {
+  padding: 20px;
+  border-radius: 12px;
+  background: #f8fafc;
+  font-weight: 500;
+}
+
 
 /* CTA */
 .cta {
   background: #2563eb;
   color: white;
   text-align: center;
-  padding: 70px 20px;
+  padding: 80px 20px;
 }
 
 /* FOOTER */
