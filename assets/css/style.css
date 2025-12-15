@@ -77,18 +77,19 @@ body {
   background: #1e40af;
 }
 
-.primary {
-  background: #1d4ed8;
-  color: white;
+.btn.primary {
+  background: #2563eb;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
 }
-
-.primary:hover {
+.btn.primary:hover {
   background: #1e40af;
 }
 
-.outline {
-  border: 2px solid #1d4ed8;
-  color: #1d4ed8;
+.btn.outline {
+  border: 1px solid #cbd5f5;
+  color: #2563eb;
 }
 
 .outline:hover {
@@ -136,6 +137,15 @@ body {
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+}
+.hero h1 {
+  font-size: 46px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.hero .highlight {
+  color: #2563eb;
 }
 
 /* ================= FEATURES ================= */
