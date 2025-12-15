@@ -65,7 +65,7 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .nav-btn {
@@ -85,6 +85,8 @@ body {
 }
 .btn.primary:hover {
   background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37,99,235,0.3);
 }
 
 .btn.outline {
@@ -95,6 +97,7 @@ body {
 .outline:hover {
   background: #1d4ed8;
   color: white;
+  background: rgba(37,99,235,0.08);
 }
 
 /* ================= HERO ================= */
