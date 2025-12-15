@@ -18,6 +18,7 @@ body {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-container {
