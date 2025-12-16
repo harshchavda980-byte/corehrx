@@ -1,32 +1,27 @@
-const toggle = document.querySelector(".menu-toggle");
-const mobileNav = document.querySelector(".mobile-nav");
+// Header shadow
+window.addEventListener("scroll", () => {
+  document.querySelector(".header")
+    .classList.toggle("scrolled", window.scrollY > 10);
 
-toggle.addEventListener("click", () => {
-  if (mobileNav.classList.contains("open")) {
-    mobileNav.classList.remove("open");
-  } else {
-    mobileNav.classList.add("open");
-  }
+  document.querySelector(".whatsapp-btn").style.display =
+    window.scrollY > 300 ? "block" : "none";
 });
+
+// Mobile menu
+document.querySelector(".menu-toggle")
+  .addEventListener("click", () => {
+    document.querySelector(".mobile-nav")
+      .classList.toggle("open");
+  });
 
 // Reveal animation
 const reveals = document.querySelectorAll(".reveal");
-
 const revealOnScroll = () => {
   reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
 };
-
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
-
-// Demo form
-document.querySelector(".demo-form").addEventListener("submit", e => {
-  e.preventDefault();
-  alert("Thanks! Our team will contact you shortly.");
-  e.target.reset();
-});
