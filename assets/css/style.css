@@ -348,14 +348,21 @@ footer {
   transition: box-shadow 0.3s ease;
 }
 
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .navbar.scrolled {
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .navbar nav a {
-  margin-left: 22px;
+  font-size: 14px;       /* smaller = cleaner */
   font-weight: 500;
   color: #1f2937;
+  text-decoration: none;
 }
 
 .navbar nav a:hover {
@@ -368,7 +375,16 @@ footer {
   color: #fff;
   border-radius: 8px;
 }
+@media (max-width: 768px) {
+  .navbar {
+    height: 56px;
+    padding: 0 20px;
+  }
 
+  .logo img {
+    height: 32px;
+  }
+}
 /* Hero text animation */
 .animate-text {
   opacity: 0;
