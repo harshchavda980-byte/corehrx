@@ -132,13 +132,14 @@ body {
   margin-bottom: 22px;
 }
 
-.trust-points {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
+.trust-points span {
+  display: inline-flex;
+  gap: 6px;
   font-size: 14px;
-  margin-bottom: 30px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #1e40af;
 }
 
 /* PROBLEM */
