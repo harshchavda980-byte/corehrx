@@ -1,196 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mine HR Solutions Pvt. Ltd.</title>
+  <meta charset="UTF-8">
+  <title>Mine HR Solutions Pvt. Ltd.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --dark:#1D3C70;
-  --accent:#28C6F5;
-  --bg:#F4F9FF;
-  --card:#FFFFFF;
-  --muted:#6B7C93;
-}
-
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter,system-ui;
-  background:var(--bg);
-  color:var(--dark);
-}
-
-/* HEADER */
-header{
-  padding:18px 32px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  background:rgba(244,249,255,0.85);
-  backdrop-filter:blur(10px);
-  z-index:10;
-}
-header img{height:54px}
-
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  gap:40px;
-  max-width:1200px;
-  margin:80px auto;
-  padding:0 32px;
-}
-.hero h1{
-  font-size:48px;
-  line-height:1.05;
-}
-.hero p{
-  color:var(--muted);
-  font-size:17px;
-  max-width:520px;
-}
-
-/* SYSTEM PANEL */
-.panel{
-  background:linear-gradient(180deg,#ffffff,#eef7ff);
-  border-radius:20px;
-  padding:26px;
-  box-shadow:0 20px 60px rgba(29,60,112,0.15);
-}
-.panel-item{
-  display:flex;
-  justify-content:space-between;
-  padding:14px 0;
-  border-bottom:1px dashed rgba(0,0,0,0.08);
-}
-.status{
-  color:var(--accent);
-  font-weight:700;
-}
-
-/* PROBLEMS */
-.problems{
-  max-width:1100px;
-  margin:100px auto;
-  padding:0 32px;
-}
-.problem-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-}
-.problem{
-  background:var(--card);
-  padding:24px;
-  border-radius:16px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.06);
-}
-
-/* TIMELINE */
-.timeline{
-  max-width:1100px;
-  margin:120px auto;
-  padding:0 32px;
-}
-.steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-.step{
-  background:linear-gradient(180deg,#fff,#f1f8ff);
-  padding:22px;
-  border-radius:14px;
-  text-align:center;
-  border-top:4px solid var(--accent);
-}
-
-/* CTA */
-.cta{
-  margin:120px auto;
-  max-width:900px;
-  text-align:center;
-  padding:60px 32px;
-  background:linear-gradient(135deg,var(--dark),var(--accent));
-  color:white;
-  border-radius:22px;
-}
-.cta button{
-  margin-top:20px;
-  padding:14px 34px;
-  border:none;
-  border-radius:40px;
-  font-size:16px;
-  font-weight:700;
-  background:white;
-  color:var(--dark);
-  cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero h1{font-size:34px}
-  .steps{grid-template-columns:1fr}
-}
-</style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-<header>
-  <img src="./assets/images/logo.jpg" alt="Mine HR Logo">
+<header class="site-header">
+  <div class="nav">
+    <img src="./assets/images/logo.png" alt="Mine HR Solutions Logo" class="logo">
+
+    <nav class="menu">
+      <a href="#">Products</a>
+      <a href="#">Services</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <div>
-    <h1>We bring control to your HR operations</h1>
+  <div class="hero-left">
+    <h1>
+      Build <span>powerful HR systems</span><br>
+      that scale with business
+    </h1>
+
     <p>
-      Mine HR Solutions Pvt. Ltd. helps growing businesses manage people, payroll,
-      compliance and hiring — without confusion or delays.
+      Mine HR Solutions Pvt. Ltd. delivers structured, compliant and
+      automation-first HRMS for modern organizations.
     </p>
+
+    <a href="#" class="btn-primary">Request Demo</a>
   </div>
 
-  <div class="panel">
-    <div class="panel-item"><span>Payroll Status</span><span class="status">✔ Processed</span></div>
-    <div class="panel-item"><span>Attendance Sync</span><span class="status">Live</span></div>
-    <div class="panel-item"><span>PF / ESI</span><span class="status">Filed</span></div>
-    <div class="panel-item"><span>Hiring Pipeline</span><span class="status">Active</span></div>
-  </div>
-</section>
-
-<section class="problems">
-  <h2>Common HR problems we remove</h2>
-  <div class="problem-grid">
-    <div class="problem">❌ Salary errors & delays</div>
-    <div class="problem">❌ Compliance confusion</div>
-    <div class="problem">❌ Hiring inefficiency</div>
-    <div class="problem">❌ HR overload on founders</div>
+  <div class="hero-right">
+    <div class="system-panel">
+      <div class="row"><span>Payroll</span><strong>ACTIVE</strong></div>
+      <div class="row"><span>Attendance</span><strong>SYNCED</strong></div>
+      <div class="row"><span>Compliance</span><strong>SECURE</strong></div>
+      <div class="row"><span>Hiring</span><strong>OPTIMIZED</strong></div>
+    </div>
   </div>
 </section>
 
-<section class="timeline">
-  <h2>How we work</h2>
-  <div class="steps">
-    <div class="step">Consult</div>
-    <div class="step">Design HR flow</div>
-    <div class="step">Implement systems</div>
-    <div class="step">Ongoing support</div>
+<section class="stats">
+  <div class="stat">
+    <h2>99.9%</h2>
+    <p>Payroll Accuracy</p>
+  </div>
+
+  <div class="stat">
+    <h2>10K+</h2>
+    <p>Employees Managed</p>
+  </div>
+
+  <div class="stat">
+    <h2>100%</h2>
+    <p>Compliance Coverage</p>
   </div>
 </section>
 
 <section class="cta">
-  <h2>HR should feel simple.</h2>
-  <p>Let us handle the complexity.</p>
-  <button>Request a consultation</button>
+  <h2>HR is not paperwork. It’s infrastructure.</h2>
+  <p>Upgrade your HR operations today.</p>
+  <a href="#" class="btn-secondary">Start Conversation</a>
 </section>
+
+<footer class="site-footer">
+  © 2025 Mine HR Solutions Pvt. Ltd. • India
+</footer>
 
 </body>
 </html>
