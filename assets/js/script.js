@@ -1,10 +1,12 @@
-// Mobile menu
 const toggle = document.querySelector(".menu-toggle");
 const mobileNav = document.querySelector(".mobile-nav");
 
 toggle.addEventListener("click", () => {
-  mobileNav.style.display =
-    mobileNav.style.display === "flex" ? "none" : "flex";
+  if (mobileNav.classList.contains("open")) {
+    mobileNav.classList.remove("open");
+  } else {
+    mobileNav.classList.add("open");
+  }
 });
 
 // Reveal animation
