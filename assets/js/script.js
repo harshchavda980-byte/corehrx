@@ -13,4 +13,26 @@ window.addEventListener("scroll", function () {
     header.classList.remove("scrolled");
   }
 });
+/* SMOOTH SCROLL WITH OFFSET */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
 
+    const targetId = this.getAttribute("href");
+    const target = document.querySelector(targetId);
+
+    if (!target) return;
+
+    const headerOffset = 80;
+    const elementPosition = target.offsetTop;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+
+    /* Close mobile menu after click */
+    document.getElementById("mobileMenu").classList.remove("active");
+  });
+});
