@@ -13,7 +13,7 @@ window.addEventListener("scroll", function () {
     header.classList.remove("scrolled");
   }
 });
-<script>
+
 function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("active");
 }
@@ -47,4 +47,4 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-</script>
+
