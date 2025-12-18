@@ -45,3 +45,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     document.getElementById("mobileMenu").classList.remove("active");
   });
 });
+/* INTRO SPLASH AUTO HIDE */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("intro-splash").classList.add("hide");
+  }, 1800); // 1.8 seconds
+});
