@@ -202,7 +202,35 @@ body {
   border-radius: 999px;
   margin-bottom: 16px;
 }
+.hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.animated-words {
+  display: inline-block;
+  position: relative;
+  height: 1.2em;
+  overflow: hidden;
+  color: #2563eb; /* brand blue */
+}
+.animated-words span {
+  display: block;
+  animation: slideWords 10s infinite;
+}
 
+@keyframes slideWords {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-1.2em); }
+  50% { transform: translateY(-2.4em); }
+  75% { transform: translateY(-3.6em); }
+  100% { transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 26px;
+  }
+}
 .hero h1 {
   font-size: 36px;
   margin-bottom: 12px;
@@ -419,6 +447,21 @@ body {
     transform: translateY(0);
   }
 }
+.hero-title {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ================= SCROLL REVEAL ANIMATIONS ================= */
 
 .reveal {
