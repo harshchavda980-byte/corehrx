@@ -12,31 +12,39 @@
 <body>
 
 <!-- ===== HEADER ===== -->
-<header class="site-header">
-  <div class="header-inner container">
+<header class="header">
 
-    <!-- Mobile Toggle -->
-    <button class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </button>
-
-    <!-- Brand -->
-    <a class="brand" href="index.html">
-      <img src="assets/images/logo.png" alt="MineHR">
-      <strong>MineHR</strong>
-    </a>
-
-    <!-- Navigation -->
-    <nav class="nav-links" id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="services.html" class="active">Services</a>
-      <a href="trust.html">Trust</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html" class="btn btn-primary">Book Demo</a>
-    </nav>
-
+  <!-- MOBILE TOGGLE -->
+  <div class="mobile-toggle" onclick="toggleMenu(this)">
+    ☰
   </div>
+
+  <!-- LOGO -->
+  <div class="nav-center">
+    <div class="logo-mark">M⚡H</div>
+    <div class="logo-text">MineHR Solutions</div>
+  </div>
+
+  <!-- DESKTOP NAV -->
+  <nav class="nav-right desktop-nav">
+    <a href="index.html" >Home</a>
+    <a href="services.html class="active"">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="trust.html">Trust</a>
+    <a href="contact.html">Contact</a>
+    <button class="demo-btn"> ⤳ Get Started </button>
+  </nav>
+
 </header>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="services.html">Services</a>
+  <a href="careers.html">Careers</a>
+  <a href="trust.html">Trust</a>
+  <a href="contact.html">Contact</a>
+  <button class="demo-btn full">⤳ Get Started</button>
+</nav>
 
 
 <!-- ===== HERO ===== -->
