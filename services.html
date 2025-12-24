@@ -11,49 +11,39 @@
 
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER (SAME AS TRUST PAGE) ===== -->
 <header class="header">
+  <div class="container header-inner">
 
-  <!-- MOBILE TOGGLE -->
-  <div class="mobile-toggle" onclick="toggleMenu(this)">
-    ☰
+    <div class="brand">
+      <span class="logo">M⚡H</span>
+      <strong>MineHR Solutions</strong>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="trust.html">Trust</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
   </div>
-
-  <!-- LOGO -->
-  <div class="nav-center">
-    <div class="logo-mark">M⚡H</div>
-    <div class="logo-text">MineHR Solutions</div>
-  </div>
-
-  <!-- DESKTOP NAV -->
-  <nav class="nav-right desktop-nav">
-    <a href="index.html" >Home</a>
-    <a href="services.html class="active"">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="trust.html">Trust</a>
-    <a href="contact.html">Contact</a>
-    <button class="demo-btn"> ⤳ Get Started </button>
-  </nav>
-
 </header>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <a href="services.html">Services</a>
-  <a href="careers.html">Careers</a>
-  <a href="trust.html">Trust</a>
-  <a href="contact.html">Contact</a>
-  <button class="demo-btn full">⤳ Get Started</button>
-</nav>
-
+<!-- PAGE OFFSET FOR FIXED HEADER -->
 <main class="page-offset">
+
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="bg-shape shape-1"></div>
   <div class="bg-shape shape-2"></div>
 
   <div class="container hero-content">
-    <h1>HR Services Built for<br><span>Growing Indian Businesses</span></h1>
+    <h1>
+      HR Services Built for <br>
+      <span>Growing Indian Businesses</span>
+    </h1>
     <p>
       From recruitment to compliance, MineHR handles your HR operations
       while you focus on scaling your business.
@@ -64,8 +54,8 @@
 <!-- ===== SERVICES GRID ===== -->
 <section class="section">
   <div class="container">
-
     <div class="services-grid">
+
       <div class="service-card reveal">
         <h3>Recruitment & Onboarding</h3>
         <p>End-to-end hiring support with structured onboarding workflows.</p>
@@ -85,8 +75,8 @@
         <h3>HR Outsourcing</h3>
         <p>Your extended HR team for smooth daily operations.</p>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 
@@ -96,6 +86,7 @@
     <h2>How We Work</h2>
 
     <div class="timeline-track">
+
       <div class="step reveal">
         <span>01</span>
         <h4>Understand</h4>
@@ -119,10 +110,13 @@
         <h4>Support</h4>
         <p>Continuous improvements & reporting.</p>
       </div>
+
     </div>
   </div>
 </section>
+
 </main>
+
 <!-- ===== STICKY CTA ===== -->
 <div class="sticky-cta">
   <span>Need HR support for your company?</span>
@@ -137,13 +131,11 @@
       <p>Ahmedabad, India</p>
       <p>info@corehrx.in</p>
     </div>
-
     <div>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
     </div>
   </div>
-  
 </footer>
 
 <script src="assets/js/main.js"></script>
