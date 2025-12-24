@@ -11,35 +11,43 @@
 
 <body>
 
-<!-- ===== HEADER ===== -->
- <header class="header">
+<header class="header">
 
   <!-- MOBILE TOGGLE -->
   <div class="mobile-toggle" onclick="toggleMenu(this)">
     ☰
   </div>
 
-    <!-- LOGO -->
-    <a href="index.html" class="brand">
-      <span class="logo-mark">M⚡H</span>
-      <span class="logo-text">MineHR Solutions</span>
-    </a>
-
-    <!-- NAV -->
-    <nav class="nav-links" id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="trust.html">Trust</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html" class="btn btn-primary"> ⤳ Get Started</a>
-    </nav>
-
+  <!-- LOGO -->
+  <div class="nav-center">
+    <div class="logo-mark">M⚡H</div>
+    <div class="logo-text">MineHR Solutions</div>
   </div>
+
+  <!-- DESKTOP NAV -->
+  <nav class="nav-right desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="trust.html">Trust</a>
+    <a href="contact.html">Contact</a>
+    <button class="demo-btn"> ⤳ Get Started </button>
+  </nav>
+
 </header>
 
-<!-- PAGE OFFSET FOR FIXED HEADER -->
 <main class="page-offset">
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html" class="active">Services</a>
+  <a href="careers.html">Careers</a>
+  <a href="trust.html">Trust</a>
+  <a href="contact.html">Contact</a>
+  <button class="demo-btn full">⤳ Get Started</button>
+</nav>
+
 
 <!-- ===== HERO ===== -->
 <section class="hero">
