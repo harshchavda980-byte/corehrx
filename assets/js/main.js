@@ -1,33 +1,28 @@
+/* ================= MOBILE MENU ================= */
 function toggleMenu(el) {
   const menu = document.getElementById("mobileMenu");
-  if (!menu) return;
-
   menu.classList.toggle("active");
   el.classList.toggle("open");
 }
 
+/* ================= STICKY HEADER ================= */
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".header");
-  if (!header) return;
-
-  header.classList.toggle("scrolled", window.scrollY > 40);
+  if (window.scrollY > 20) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 });
 
-/* Close mobile menu on click */
-document.querySelectorAll(".mobile-menu a, .mobile-menu button").forEach(el => {
-  el.addEventListener("click", () => {
-    document.getElementById("mobileMenu")?.classList.remove("active");
-    document.querySelector(".mobile-toggle")?.classList.remove("open");
-  });
-});
-
-/* Scroll reveal */
+/* ================= REVEAL ON SCROLL ================= */
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
-  const h = window.innerHeight;
+  const windowHeight = window.innerHeight;
   reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < h - 120) {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 120) {
       el.classList.add("active");
     }
   });
