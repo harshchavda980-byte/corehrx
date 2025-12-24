@@ -95,22 +95,51 @@ a {
   color:#fff;
 }
 
-/* MOBILE TOGGLE (LEFT) */
-.menu-toggle {
-  display:none;
-  flex-direction:column;
-  gap:5px;
-  background:none;
-  border:none;
-  cursor:pointer;
+/* ================= MOBILE TOGGLE ================= */
+.mobile-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.menu-toggle span {
-  width:22px;
-  height:2px;
-  background:#000;
+.mobile-toggle.open {
+  transform: rotate(90deg);
+}
+/* ================= MOBILE MENU (ANIMATED) ================= */
+.mobile-menu {
+  position: absolute;
+  top: 64px; /* height of header */
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+
+  transition: max-height 0.35s ease,
+              opacity 0.25s ease,
+              transform 0.35s ease;
 }
 
+.mobile-menu a,
+.mobile-menu button {
+  padding: 14px 24px;
+  text-align: left;
+  border-top: 1px solid #f1f5f9;
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+/* ACTIVE STATE */
+.mobile-menu.active {
+  max-height: 500px; /* enough for menu items */
+  opacity: 1;
+  transform: translateY(0);
+}
 /* ================= PAGE OFFSET ================= */
 .page-offset {
   padding-top:90px;
