@@ -1,3 +1,17 @@
+/* ================= LOAD SHARED HEADER ================= */
+fetch("partials/header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("site-header").innerHTML = data;
+
+    // Activate current menu
+    const currentPage = location.pathname.split("/").pop();
+    document.querySelectorAll(".desktop-nav a, .mobile-menu a").forEach(link => {
+      if (link.getAttribute("href") === currentPage || (currentPage === "" && link.getAttribute("href") === "index.html")) {
+        link.classList.add("active");
+      }
+    });
+  });
 /* ================= MOBILE MENU ================= */
 function toggleMenu(el) {
   const menu = document.getElementById("mobileMenu");
