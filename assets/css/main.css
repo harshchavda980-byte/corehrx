@@ -226,7 +226,12 @@ a {
 .step:hover {
   transform: translateY(-6px);
 }
-
+.trust-strip {
+  background: #f1f5ff;
+  text-align: center;
+  font-weight: 600;
+  color: #1e40af;
+}
 /* ================= FOOTER ================= */
 .footer {
   background: #0f172a;
