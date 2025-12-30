@@ -1,61 +1,67 @@
-/* ================= LOAD SHARED HEADER ================= */
-fetch("partials/header.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("site-header").innerHTML = data;
+document.addEventListener("DOMContentLoaded", () => {
 
-    // Activate current menu
-    const currentPage = location.pathname.split("/").pop();
-    document.querySelectorAll(".desktop-nav a, .mobile-menu a").forEach(link => {
-      if (link.getAttribute("href") === currentPage || (currentPage === "" && link.getAttribute("href") === "index.html")) {
-        link.classList.add("active");
-      }
+  /* ===== LOAD HEADER ===== */
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
+      activateMenu();
+      setupMobileMenu();
     });
-  });
-/* ================= MOBILE MENU ================= */
-function toggleMenu(el) {
-  const menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("active");
-  el.classList.toggle("open");
-  document.body.classList.toggle("menu-open");
-}
 
-/* CLOSE MENU ON LINK CLICK */
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("mobileMenu").classList.remove("active");
-    document.querySelector(".mobile-toggle").classList.remove("open");
-    document.body.classList.remove("menu-open");
-  });
-});
+  /* ===== ACTIVE MENU ===== */
+  function activateMenu() {
+    const currentPage =
+      location.pathname.split("/").pop() || "index.html";
 
-/* ================= STICKY HEADER ================= */
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
-  header.classList.toggle("scrolled", window.scrollY > 20);
-});
-
-/* ================= AUTO ACTIVE MENU ================= */
-const currentPage = location.pathname.split("/").pop();
-
-document.querySelectorAll(".desktop-nav a, .mobile-menu a").forEach(link => {
-  const linkPage = link.getAttribute("href");
-  if (linkPage === currentPage || linkPage === "") {
-    link.classList.add("active");
+    document
+      .querySelectorAll(".desktop-nav a, .mobile-menu a")
+      .forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
   }
-});
 
-/* ================= SCROLL REVEAL ================= */
-const reveals = document.querySelectorAll(".reveal");
+  /* ===== MOBILE MENU ===== */
+  function setupMobileMenu() {
+    const toggle = document.querySelector(".mobile-toggle");
+    const menu = document.getElementById("mobileMenu");
 
-function revealOnScroll() {
-  const windowHeight = window.innerHeight;
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < windowHeight - 120) {
-      el.classList.add("active");
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      document.body.classList.toggle("menu-open");
+    });
+
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      });
+    });
+  }
+
+  /* ===== STICKY HEADER ===== */
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector(".header");
+    if (header) {
+      header.classList.toggle("scrolled", window.scrollY > 20);
     }
   });
-}
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+  /* ===== SCROLL REVEAL ===== */
+  const reveals = document.querySelectorAll(".reveal");
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 120) {
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+
+});
