@@ -95,4 +95,14 @@ document.querySelectorAll(".mobile-menu a").forEach(link => {
     document.body.style.overflow = "";
   });
 });
+/* ================= LOAD SHARED FOOTER ================= */
+fetch("partials/footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("site-footer").innerHTML = data;
+
+    // Auto year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  });
 
