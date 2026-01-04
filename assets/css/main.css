@@ -264,3 +264,62 @@ body {
   .mobile-toggle { display: block; }
   .hero h1 { font-size: 32px; }
 }
+
+/* =====================================================
+   NEW CSS FOR SERVICES PAGE (LAST PART ONLY)
+   ADDED WITHOUT MODIFYING ABOVE CODE
+===================================================== */
+
+/* HERO ACTION BUTTONS */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 40px auto 0;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-outline {
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* TRUST STRIP */
+.trust-strip {
+  background: #ffffff;
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+
+.trust-strip p {
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.trust-strip {
+  border-top: none !important;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
