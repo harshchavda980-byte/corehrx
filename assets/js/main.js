@@ -12,12 +12,13 @@ fetch("partials/footer.html")
   });
 
 /* ===== MOBILE MENU ===== */
-function toggleMenu() {
+function toggleMenu(toggle) {
   const menu = document.getElementById("mobileMenu");
-  if (menu) {
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-  }
+  if (!menu) return;
+  menu.classList.toggle("open");
+  toggle.classList.toggle("open");
 }
+
 
 /* ===== REVEAL ON SCROLL ===== */
 const reveals = document.querySelectorAll(".reveal");
@@ -34,3 +35,37 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
+// ===== INTRO SPLASH HIDE =====
+window.addEventListener("load", () => {
+  const splash = document.getElementById("intro-splash");
+  if (splash) {
+    setTimeout(() => {
+      splash.classList.add("hide");
+    }, 800); // delay for animation
+  }
+});
+
+/* ===== ACTIVE NAV LINK ===== */
+function setActiveNav() {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+  // Desktop links
+  document.querySelectorAll(".desktop-nav a").forEach(link => {
+    const linkPage = link.getAttribute("href");
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    }
+  });
+
+  // Mobile links
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    const linkPage = link.getAttribute("href");
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    }
+  });
+}
+
+/* Call AFTER header loads */
+setTimeout(setActiveNav, 100);
