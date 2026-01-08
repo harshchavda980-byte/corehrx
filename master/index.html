@@ -92,6 +92,56 @@
           </tr>
         </table>
       </div>
+  <div class="content-header">
+    <h1>Company Management</h1>
+    <button class="btn-primary" onclick="openModal()">+ Add Company</button>
+  </div>
+
+  <div class="panel">
+    <table>
+      <tr>
+        <th>Company Name</th>
+        <th>Email</th>
+        <th>Employees</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+
+      <tr>
+        <td>ABC Pvt Ltd</td>
+        <td>hr@abc.com</td>
+        <td>120</td>
+        <td><span class="badge active">Active</span></td>
+        <td><button class="btn-small">View</button></td>
+      </tr>
+
+      <tr>
+        <td>XYZ Solutions</td>
+        <td>admin@xyz.com</td>
+        <td>58</td>
+        <td><span class="badge inactive">Inactive</span></td>
+        <td><button class="btn-small">View</button></td>
+      </tr>
+    </table>
+  </div>
+
+</section>
+
+<!-- ADD COMPANY MODAL -->
+<div class="modal" id="companyModal">
+  <div class="modal-box">
+    <h3>Add New Company</h3>
+
+    <input type="text" placeholder="Company Name">
+    <input type="email" placeholder="Company Email">
+    <input type="number" placeholder="No. of Employees">
+
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary">Save</button>
+    </div>
+  </div>
+</div>
 
     </section>
   </main>
