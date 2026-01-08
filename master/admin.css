@@ -65,7 +65,22 @@ body {
 .submenu-item:hover {
   background: #ede9fe;
 }
+.submenu a {
+  display: block;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #e9d5ff;
+  opacity: 0.85;
+}
 
+.submenu a:hover {
+  opacity: 1;
+  background: rgba(255,255,255,0.12);
+}
+
+.submenu.open {
+  max-height: 300px;
+}
 /* Arrow */
 .arrow {
   margin-left: auto;
@@ -321,17 +336,6 @@ th, td {
   background: rgba(255,255,255,0.15);
   border-left: 4px solid #fff;
 }
-
-.submenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.submenu.open {
-  max-height: 300px;
-}
-
 .stat-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
