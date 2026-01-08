@@ -1,0 +1,182 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  height: 56px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-btn {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 18px;
+  color: #2563eb;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.top-right input {
+  padding: 6px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.profile {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+  display: flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  background: #ffffff;
+  min-height: calc(100vh - 56px);
+  border-right: 1px solid #e5e7eb;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 12px;
+  color: #334155;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #e0e7ff;
+  color: #2563eb;
+}
+
+.menu-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #64748b;
+  margin: 12px 0 6px;
+  display: block;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.content h1 {
+  margin-bottom: 16px;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.card h3 {
+  font-size: 14px;
+  color: #475569;
+}
+
+.card p {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ===== PANEL ===== */
+.panel {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.panel h2 {
+  margin-bottom: 12px;
+}
+
+/* ===== TABLE ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.pending {
+  color: #d97706;
+  font-weight: 500;
+}
+
+.open {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -220px;
+    top: 56px;
+    height: 100%;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+}
