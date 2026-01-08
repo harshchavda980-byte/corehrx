@@ -5,7 +5,9 @@ document.querySelectorAll(".sidebar nav a").forEach(item => {
     item.classList.add("active");
   });
 });
-
+function toggleSubmenu(id) {
+  document.getElementById(id).classList.toggle("open");
+}
 function openModal() {
   document.getElementById("companyModal").style.display = "flex";
 }
