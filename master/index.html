@@ -21,24 +21,16 @@
 
     <nav>
       <a class="active">Dashboard</a>
-      <div class="menu-item" onclick="toggleCompanyMenu()">
-  <a><span>🏢 Companies</span></a>
-  <span class="arrow" id="companyArrow">▾</span>
+      <div class="menu-item" onclick="toggleSubmenu('companiesMenu')">
+  <span>🏢 Companies</span>
+  <span class="arrow">▾</span>
 </div>
 
-<div class="submenu" id="companySubmenu">
-  <div class="submenu-item" onclick="loadPage('company-management')">
-    Company Management
-  </div>
-  <div class="submenu-item" onclick="loadPage('company-renewals')">
-    Company Renewals
-  </div>
-  <div class="submenu-item" onclick="loadPage('employee-count')">
-    Employee Count
-  </div>
-  <div class="submenu-item" onclick="loadPage('recent-activity')">
-    Recent Activity
-  </div>
+<div class="submenu" id="companiesMenu">
+  <a href="#">Company Management</a>
+  <a href="#">Company Renewals</a>
+  <a href="#">Employee Count</a>
+  <a href="#">Recent Activity</a>
 </div>
       <a>Users</a>
       <a>Tickets</a>
