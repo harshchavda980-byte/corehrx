@@ -45,6 +45,47 @@ body {
 .sidebar nav a.active {
   background: rgba(255,255,255,0.2);
 }
+/* Submenu */
+.submenu {
+  margin-left: 12px;
+  border-left: 2px solid #e9d5ff;
+  padding-left: 10px;
+  display: none;
+  animation: fadeSlide 0.3s ease;
+}
+
+.submenu-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #4c1d95;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.submenu-item:hover {
+  background: #ede9fe;
+}
+
+/* Arrow */
+.arrow {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* MAIN */
 .main {
