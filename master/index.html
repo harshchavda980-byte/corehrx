@@ -2,118 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MineHR | Master Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
 </head>
-
-  
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<header class="topbar">
-  <div class="top-left">
-    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
-    <strong class="logo">MineHR Master</strong>
-  </div>
+<div class="admin-layout">
 
-  <div class="top-right">
-    <input type="text" placeholder="Search company / user">
-    <span class="icon">🔔</span>
-    <div class="profile">Admin ⌄</div>
-  </div>
-</header>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span>M⚡H</span>
+      <strong>MineHR</strong>
+    </div>
 
-<!-- ===== LAYOUT ===== -->
-<div class="layout">
-
-  <!-- ===== SIDEBAR ===== -->
-  <aside class="sidebar" id="sidebar">
-    <a class="active" href="#">Dashboard</a>
-
-    <span class="menu-title">Company</span>
-    <a href="#">Companies</a>
-    <a href="#">Requests</a>
-    <a href="#">Plans</a>
-
-    <span class="menu-title">Users</span>
-    <a href="#">Users</a>
-    <a href="#">Roles</a>
-
-    <span class="menu-title">Operations</span>
-    <a href="#">Tickets</a>
-    <a href="#">Escalations</a>
-
-    <span class="menu-title">CRM</span>
-    <a href="#">Leads</a>
-    <a href="#">Demo Requests</a>
-
-    <a href="#">Reports</a>
-    <a href="#">Settings</a>
+    <nav>
+      <a class="active">Dashboard</a>
+      <a>Companies</a>
+      <a>Users</a>
+      <a>Tickets</a>
+      <a>Reports</a>
+      <a>Settings</a>
+    </nav>
   </aside>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main class="content">
+  <!-- MAIN -->
+  <main class="main">
 
-    <h1>Dashboard</h1>
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <input type="search" placeholder="Search anything..." />
+      <div class="profile">
+        <span>Harsh</span>
+        <img src="https://i.pravatar.cc/40" />
+      </div>
+    </header>
 
-    <!-- KPI CARDS -->
-    <div class="cards">
-      <div class="card">
-        <h3>Total Companies</h3>
-        <p>128</p>
-      </div>
-      <div class="card">
-        <h3>Active Companies</h3>
-        <p>96</p>
-      </div>
-      <div class="card">
-        <h3>Open Tickets</h3>
-        <p>42</p>
-      </div>
-      <div class="card">
-        <h3>Pending Requests</h3>
-        <p>11</p>
-      </div>
-    </div>
+    <!-- CONTENT -->
+    <section class="content">
 
-    <!-- ACTION REQUIRED -->
-    <div class="panel">
-      <h2>Action Required</h2>
+      <h1>Dashboard Overview</h1>
 
-      <table>
-        <thead>
+      <!-- KPI CARDS -->
+      <div class="cards">
+
+        <div class="card purple">
+          <h3>Companies</h3>
+          <p>128</p>
+        </div>
+
+        <div class="card blue">
+          <h3>Active Users</h3>
+          <p>1,204</p>
+        </div>
+
+        <div class="card green">
+          <h3>Open Tickets</h3>
+          <p>32</p>
+        </div>
+
+        <div class="card orange">
+          <h3>Pending Requests</h3>
+          <p>9</p>
+        </div>
+
+      </div>
+
+      <!-- TABLE -->
+      <div class="panel">
+        <h2>Recent Activities</h2>
+        <table>
           <tr>
-            <th>Type</th>
-            <th>Description</th>
+            <th>Company</th>
+            <th>Action</th>
             <th>Status</th>
           </tr>
-        </thead>
-        <tbody>
           <tr>
-            <td>Company</td>
-            <td>New company registration</td>
+            <td>ABC Pvt Ltd</td>
+            <td>Payroll Updated</td>
+            <td class="success">Completed</td>
+          </tr>
+          <tr>
+            <td>XYZ Solutions</td>
+            <td>New User Added</td>
             <td class="pending">Pending</td>
           </tr>
-          <tr>
-            <td>Ticket</td>
-            <td>Payroll mismatch issue</td>
-            <td class="open">Open</td>
-          </tr>
-          <tr>
-            <td>CRM</td>
-            <td>Demo request from Ahmedabad</td>
-            <td class="pending">Pending</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        </table>
+      </div>
 
+    </section>
   </main>
+
 </div>
 
-<script src="assets/js/admin.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>
