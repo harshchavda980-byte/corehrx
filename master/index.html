@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MineHR | Master Panel</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <div class="top-left">
+    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <strong class="logo">MineHR Master</strong>
+  </div>
+
+  <div class="top-right">
+    <input type="text" placeholder="Search company / user">
+    <span class="icon">🔔</span>
+    <div class="profile">Admin ⌄</div>
+  </div>
+</header>
+
+<!-- ===== LAYOUT ===== -->
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <a class="active" href="#">Dashboard</a>
+
+    <span class="menu-title">Company</span>
+    <a href="#">Companies</a>
+    <a href="#">Requests</a>
+    <a href="#">Plans</a>
+
+    <span class="menu-title">Users</span>
+    <a href="#">Users</a>
+    <a href="#">Roles</a>
+
+    <span class="menu-title">Operations</span>
+    <a href="#">Tickets</a>
+    <a href="#">Escalations</a>
+
+    <span class="menu-title">CRM</span>
+    <a href="#">Leads</a>
+    <a href="#">Demo Requests</a>
+
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="content">
+
+    <h1>Dashboard</h1>
+
+    <!-- KPI CARDS -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Companies</h3>
+        <p>128</p>
+      </div>
+      <div class="card">
+        <h3>Active Companies</h3>
+        <p>96</p>
+      </div>
+      <div class="card">
+        <h3>Open Tickets</h3>
+        <p>42</p>
+      </div>
+      <div class="card">
+        <h3>Pending Requests</h3>
+        <p>11</p>
+      </div>
+    </div>
+
+    <!-- ACTION REQUIRED -->
+    <div class="panel">
+      <h2>Action Required</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Company</td>
+            <td>New company registration</td>
+            <td class="pending">Pending</td>
+          </tr>
+          <tr>
+            <td>Ticket</td>
+            <td>Payroll mismatch issue</td>
+            <td class="open">Open</td>
+          </tr>
+          <tr>
+            <td>CRM</td>
+            <td>Demo request from Ahmedabad</td>
+            <td class="pending">Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
