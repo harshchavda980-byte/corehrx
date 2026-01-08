@@ -6,6 +6,10 @@ document.querySelectorAll(".sidebar nav a").forEach(item => {
   });
 });
 function toggleSubmenu(id) {
+  document.querySelectorAll(".submenu").forEach(menu => {
+    if (menu.id !== id) menu.classList.remove("open");
+  });
+
   document.getElementById(id).classList.toggle("open");
 }
 function openModal() {
