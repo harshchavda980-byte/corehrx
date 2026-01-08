@@ -5,3 +5,11 @@ document.querySelectorAll(".sidebar nav a").forEach(item => {
     item.classList.add("active");
   });
 });
+
+function openModal() {
+  document.getElementById("companyModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("companyModal").style.display = "none";
+}
