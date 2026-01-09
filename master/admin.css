@@ -58,6 +58,13 @@ body {
 .sidebar nav a.active {
   border-left: 4px solid #fff;
 }
+.sidebar-section {
+  margin: 20px 0 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  padding-left: 8px;
+}
 
 /* ================= DROPDOWN ================= */
 .has-dropdown .submenu {
