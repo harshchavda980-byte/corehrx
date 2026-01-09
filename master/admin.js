@@ -41,3 +41,28 @@ document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
     parent.classList.toggle("open");
   });
 });
+// BAR CHART DATA
+function renderEmployeeChart() {
+  const data = [40, 55, 70, 90, 120, 150];
+  const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+  const chart = document.getElementById("employeeChart");
+
+  if (!chart) return;
+
+  chart.innerHTML = "";
+
+  data.forEach((value, index) => {
+    const bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.setProperty("--h", value + "px");
+
+    const label = document.createElement("span");
+    label.innerText = labels[index];
+
+    bar.appendChild(label);
+    chart.appendChild(bar);
+  });
+}
+
+// Run on load
+window.addEventListener("load", renderEmployeeChart);
