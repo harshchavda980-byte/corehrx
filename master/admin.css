@@ -18,12 +18,46 @@ body {
 
 /* SIDEBAR */
 .sidebar {
-  width: 240px;
-  background: linear-gradient(180deg, #5b21b6, #7c3aed);
+  width: 260px;
+  background: linear-gradient(180deg, #6d28d9, #7c3aed);
   color: #fff;
   padding: 20px;
+  height: 100vh;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.nav-link {
+  padding: 12px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  transition: background 0.3s;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,0.15);
 }
 
+.nav-link.active {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Dropdown */
+.has-dropdown .submenu {
+  max-height: 0;
+  overflow: hidden;
+  margin-left: 10px;
+  transition: max-height 0.35s ease;
+}
+
+.has-dropdown.open .submenu {
+  max-height: 300px;
+}
 .brand {
   display: flex;
   align-items: center;
@@ -70,16 +104,17 @@ body {
 }
 .submenu a {
   display: block;
-  padding: 8px 12px;
+  padding: 10px 14px;
   padding-left: 32px;
   font-size: 13.5px;
   color: #e9d5ff;
+  border-radius: 6px;
   opacity: 0.85;
 }
 
 .submenu a:hover {
   opacity: 1;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.15);
 }
 
 .submenu.open {
@@ -87,14 +122,15 @@ body {
 }
 /* Arrow */
 .arrow {
-  margin-left: auto;
   transition: transform 0.3s ease;
 }
 
 .arrow.rotate {
   transform: rotate(180deg);
 }
-
+.has-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
 @keyframes fadeSlide {
   from {
     opacity: 0;
