@@ -41,3 +41,19 @@ function loadPage(pageName) {
     `;
   }, 700);
 }
+document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+  toggle.addEventListener("click", () => {
+
+    const parent = toggle.closest(".has-dropdown");
+
+    // Close other dropdowns
+    document.querySelectorAll(".has-dropdown").forEach(item => {
+      if (item !== parent) {
+        item.classList.remove("open");
+      }
+    });
+
+    // Toggle current
+    parent.classList.toggle("open");
+  });
+});
