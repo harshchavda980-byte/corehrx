@@ -1,3 +1,4 @@
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -10,149 +11,103 @@ body {
   color: #1e1b4b;
 }
 
-/* LAYOUT */
+/* ================= LAYOUT ================= */
 .admin-layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 .sidebar {
   width: 260px;
   background: linear-gradient(180deg, #6d28d9, #7c3aed);
   color: #fff;
   padding: 20px;
-  height: 100vh;
-}
-.logo {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-.nav-link {
-  padding: 12px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-  transition: background 0.3s;
-}
-.nav-link:hover {
-  background: rgba(255,255,255,0.15);
+  overflow-y: auto;
 }
 
-.nav-link.active {
-  background: rgba(255,255,255,0.2);
-}
-
-/* Dropdown */
-.has-dropdown .submenu {
-  max-height: 0;
-  overflow: hidden;
-  margin-left: 10px;
-  transition: max-height 0.35s ease;
-}
-
-.has-dropdown.open .submenu {
-  max-height: 300px;
-}
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 20px;
+  font-weight: 700;
   margin-bottom: 30px;
 }
 
-.sidebar nav a {
-  display: block;
+/* Navigation */
+.sidebar nav a,
+.nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 12px 14px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  color: #fff;
+  transition: background 0.25s ease;
 }
 
 .sidebar nav a:hover,
+.sidebar nav a.active,
+.nav-link:hover {
+  background: rgba(255,255,255,0.18);
+}
+
 .sidebar nav a.active {
-  background: rgba(255,255,255,0.2);
+  border-left: 4px solid #fff;
 }
-/* Submenu */
-.submenu {
-  margin-left: 12px;
+
+/* ================= DROPDOWN ================= */
+.has-dropdown .submenu {
+  max-height: 0;
+  overflow: hidden;
   background: rgba(255,255,255,0.08);
-  border-radius: 6px;
-  margin-top: 6px;
-  border-left: 2px solid #e9d5ff;
-  padding-left: 10px;
-  display: none;
-  animation: fadeSlide 0.3s ease;
+  border-radius: 8px;
+  margin-left: 8px;
+  transition: max-height 0.35s ease;
 }
 
-.submenu-item {
-  padding: 8px 12px;
-  font-size: 14px;
-  color: #4c1d95;
-  cursor: pointer;
-  border-radius: 6px;
+.has-dropdown.open .submenu {
+  max-height: 400px;
 }
 
-.submenu-item:hover {
-  background: #ede9fe;
-}
+/* Submenu links */
 .submenu a {
   display: block;
-  padding: 10px 14px;
-  padding-left: 32px;
+  padding: 10px 16px 10px 36px;
   font-size: 13.5px;
-  color: #e9d5ff;
-  border-radius: 6px;
+  color: #f5f3ff;
   opacity: 0.85;
+  border-radius: 6px;
 }
 
 .submenu a:hover {
-  opacity: 1;
   background: rgba(255,255,255,0.15);
+  opacity: 1;
 }
 
-.submenu.open {
-  max-height: 300px;
-}
 /* Arrow */
 .arrow {
   transition: transform 0.3s ease;
 }
 
-.arrow.rotate {
-  transform: rotate(180deg);
-}
 .has-dropdown.open .arrow {
   transform: rotate(180deg);
 }
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* MAIN */
+/* ================= MAIN ================= */
 .main {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* TOPBAR */
+/* ================= TOPBAR ================= */
 .topbar {
   height: 64px;
-  background: #ffffff;
+  background: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -177,16 +132,19 @@ body {
   border-radius: 50%;
 }
 
-/* CONTENT */
+/* ================= CONTENT ================= */
 .content {
   padding: 30px;
 }
 
-h1 {
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -198,7 +156,7 @@ h1 {
   padding: 24px;
   border-radius: 18px;
   color: #fff;
-  animation: fadeUp 0.6s ease;
+  animation: fadeUp 0.5s ease;
 }
 
 .card h3 {
@@ -216,7 +174,7 @@ h1 {
 .green { background: #16a34a; }
 .orange { background: #ea580c; }
 
-/* PANEL */
+/* ================= PANEL ================= */
 .panel {
   background: #fff;
   padding: 24px;
@@ -228,6 +186,7 @@ h1 {
   margin-bottom: 16px;
 }
 
+/* ================= TABLE ================= */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -238,29 +197,11 @@ th, td {
   border-bottom: 1px solid #eee;
 }
 
-.success { color: green; }
-.pending { color: orange; }
-
-/* ANIMATION */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Content Header */
-.content-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+table tr:hover {
+  background: #f4f2ff;
 }
 
-/* Buttons */
+/* ================= BUTTONS ================= */
 .btn-primary {
   background: #7c3aed;
   color: #fff;
@@ -268,7 +209,6 @@ th, td {
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .btn-primary:hover {
@@ -276,22 +216,13 @@ th, td {
 }
 
 .btn-secondary {
-  background: #ddd;
+  background: #e5e7eb;
   padding: 10px 16px;
   border-radius: 10px;
   border: none;
 }
 
-.btn-small {
-  background: #ede9fe;
-  color: #6d28d9;
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Badges */
+/* ================= BADGES ================= */
 .badge {
   padding: 6px 12px;
   border-radius: 20px;
@@ -308,7 +239,7 @@ th, td {
   color: #991b1b;
 }
 
-/* Modal */
+/* ================= MODAL ================= */
 .modal {
   position: fixed;
   inset: 0;
@@ -316,109 +247,49 @@ th, td {
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 }
 
 .modal-box {
   background: #fff;
   padding: 25px;
   border-radius: 20px;
-  width: 350px;
-  animation: fade 0.4s ease;
+  width: 360px;
 }
 
-.modal-box h3 {
-  margin-bottom: 15px;
-}
-
-.modal-box input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-/* PAGE LOADER */
+/* ================= LOADER ================= */
 .page-loader {
   position: fixed;
   inset: 0;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.85);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
-#pageLoader::after {
+
+.page-loader::after {
   content: "";
   width: 48px;
   height: 48px;
-  border: 5px solid #c4b5fd;
-  border-top-color: #6d28d9;
+  border: 4px solid #ddd;
+  border-top-color: #7c3aed;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
-.loader-circle {
-  width: 48px;
-  height: 48px;
-  border: 4px solid #e9d5ff;
-  border-top: 4px solid #7c3aed;
-  border-radius: 50%;
-  animation: spin 0.9s linear infinite;
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-.sidebar {
-  background: linear-gradient(180deg, #6d28d9, #7c3aed);
-}
-.sidebar a.active {
-  background: rgba(255,255,255,0.18);
-  border-left: 4px solid #fff;
-}
-
-.sidebar a:hover {
-  background: rgba(255,255,255,0.12);
-}
-.menu-item.active {
-  background: rgba(255,255,255,0.15);
-  border-left: 4px solid #fff;
-}
-.stat-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-}
-.stat-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-table tr:hover {
-  background: #f4f2ff;
-}
-
-.status.completed {
-  color: #16a34a;
-  font-weight: 600;
-}
-
-.status.pending {
-  color: #f59e0b;
-  font-weight: 600;
+  to { transform: rotate(360deg); }
 }
