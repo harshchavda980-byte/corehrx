@@ -284,3 +284,83 @@ body {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* DARK MODE TOGGLE */
+.theme-toggle {
+  width: 56px;
+  height: 28px;
+  background: #ede9fe;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle span {
+  font-size: 14px;
+  width: 50%;
+  text-align: center;
+  z-index: 2;
+}
+
+.toggle-ball {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #7c3aed;
+  border-radius: 50%;
+  left: 4px;
+  transition: 0.3s ease;
+}
+/* DARK MODE */
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* Sidebar */
+body.dark .sidebar {
+  background: linear-gradient(180deg, #1e1b4b, #312e81);
+}
+
+/* Topbar */
+body.dark .topbar {
+  background: #020617;
+  box-shadow: none;
+}
+
+/* Panels & Cards */
+body.dark .panel,
+body.dark .card {
+  background: #020617;
+  color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Tables */
+body.dark table tr:hover {
+  background: #1e1b4b;
+}
+
+body.dark th,
+body.dark td {
+  border-color: #1e293b;
+}
+
+/* Buttons */
+body.dark .btn-primary {
+  background: #8b5cf6;
+}
+
+/* Toggle movement */
+body.dark .theme-toggle {
+  background: #312e81;
+}
+
+body.dark .toggle-ball {
+  transform: translateX(28px);
+}
+
