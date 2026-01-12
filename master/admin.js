@@ -109,16 +109,25 @@ function toggleSidebar() {
     document.body.classList.toggle("sidebar-collapsed");
   }
 }
-import { db } from "./firebase.js";
-import { collection, addDoc } from
-"https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-async function addRecord() {
-  await addDoc(collection(db, "masterData"), {
-    title: "Test Data",
-    createdAt: new Date()
-  });
-  alert("Data Saved");
+import { db } from "./firebase.js";
+import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// SAVE STATS
+async function saveStats(data) {
+  await setDoc(doc(db, "dashboard", "stats"), data);
 }
 
-window.addRecord = addRecord;
+// LOAD STATS
+async function loadStats() {
+  const snap = await getDoc(doc(db, "dashboard", "stats"));
+  if (snap.exists()) {
+    const stats = snap.data();
+    document.getElementById("totalCompanies").innerText = stats.totalCompanies;
+    document.getElementById("employees").innerText = stats.employees;
+    document.getElementById("activeClients").innerText = stats.activeClients;
+  }
+}
+
+// Call loadStats on page load
+loadStats();
