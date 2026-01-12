@@ -129,6 +129,18 @@
       </div>
     </div>
   </div>
+  <input id="inputCompanies">
+<button onclick="updateStats()">Update</button>
+
+<script>
+async function updateStats(){
+  const data = {
+    totalCompanies: parseInt(document.getElementById("inputCompanies").value)
+  };
+  await saveStats(data);
+  alert("Updated!");
+}
+</script>
 <button onclick="addRecord()">Save</button>
 </div>
     </section>
