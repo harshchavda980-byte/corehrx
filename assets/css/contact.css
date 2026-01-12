@@ -5,10 +5,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
+  font-family: "Poppins", sans-serif;
   background: #ffffff;
   color: #1f2937;
   line-height: 1.6;
@@ -224,3 +224,11 @@ a {
   }
 }
 
+@media (max-width: 480px) {
+  .whatsapp-cta {
+    padding: 10px 14px;
+    font-size: 12px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

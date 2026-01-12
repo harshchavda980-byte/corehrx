@@ -1,8 +1,20 @@
+/* =============================================
+   MAIN.JS - COMMON JAVASCRIPT FOR ALL PAGES
+   Used by: services.html, careers.html, trust.html, contact.html
+   (index.html uses script.js instead)
+============================================= */
+
 /* ===== LOAD HEADER & FOOTER ===== */
 fetch("partials/header.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("header").innerHTML = data;
+
+    // ✅ HIDE HOME LINK ON HOME PAGE
+    hideHomeLinkOnHomePage();
+
+    // ✅ SET ACTIVE NAV AFTER HEADER LOAD
+    setActiveNav();
   });
 
 fetch("partials/footer.html")
@@ -18,7 +30,6 @@ function toggleMenu(toggle) {
   menu.classList.toggle("open");
   toggle.classList.toggle("open");
 }
-
 
 /* ===== REVEAL ON SCROLL ===== */
 const reveals = document.querySelectorAll(".reveal");
@@ -36,19 +47,10 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-// ===== INTRO SPLASH HIDE =====
-window.addEventListener("load", () => {
-  const splash = document.getElementById("intro-splash");
-  if (splash) {
-    setTimeout(() => {
-      splash.classList.add("hide");
-    }, 800); // delay for animation
-  }
-});
-
 /* ===== ACTIVE NAV LINK ===== */
 function setActiveNav() {
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const currentPage =
+    window.location.pathname.split("/").pop() || "index.html";
 
   // Desktop links
   document.querySelectorAll(".desktop-nav a").forEach(link => {
@@ -67,5 +69,20 @@ function setActiveNav() {
   });
 }
 
-/* Call AFTER header loads */
-setTimeout(setActiveNav, 100);
+/* ===== HIDE HOME LINK ON HOME PAGE ===== */
+function hideHomeLinkOnHomePage() {
+  const currentPage =
+    window.location.pathname.split("/").pop() || "index.html";
+
+  if (currentPage === "index.html") {
+    // Desktop Home link
+    document
+      .querySelectorAll('.desktop-nav a[href="index.html"]')
+      .forEach(link => link.remove());
+
+    // Mobile Home link
+    document
+      .querySelectorAll('.mobile-menu a[href="index.html"]')
+      .forEach(link => link.remove());
+  }
+}

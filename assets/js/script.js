@@ -1,67 +1,43 @@
-function toggleMenu(el) {
-  const menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("active");
+/* =============================================
+   SCRIPT.JS - INDEX.HTML JAVASCRIPT
+   Contains common functions + index-specific code
+============================================= */
 
-  el.classList.toggle("open");
-}
-window.addEventListener("scroll", function () {
-  const header = document.getElementById("siteHeader");
+/* ===== LOAD HEADER & FOOTER ===== */
+fetch("partials/header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
 
-  if (window.scrollY > 10) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
-/* STICKY HEADER EFFECT */
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
-  if (window.scrollY > 40) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
-/* SMOOTH SCROLL WITH OFFSET */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+    // ✅ HIDE HOME LINK ON HOME PAGE
+    hideHomeLinkOnHomePage();
 
-    const targetId = this.getAttribute("href");
-    const target = document.querySelector(targetId);
-
-    if (!target) return;
-
-    const headerOffset = 80;
-    const elementPosition = target.offsetTop;
-    const offsetPosition = elementPosition - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth"
-    });
-
-    /* Close mobile menu after click */
-    document.getElementById("mobileMenu").classList.remove("active");
+    // ✅ SET ACTIVE NAV AFTER HEADER LOAD
+    setActiveNav();
   });
-});
-/* INTRO SPLASH AUTO HIDE */
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("intro-splash").classList.add("hide");
-  }, 1800); // 1.8 seconds
-});
-/* SCROLL REVEAL */
+
+fetch("partials/footer-index.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+
+/* ===== MOBILE MENU ===== */
+function toggleMenu(toggle) {
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+  menu.classList.toggle("open");
+  toggle.classList.toggle("open");
+}
+
+/* ===== REVEAL ON SCROLL ===== */
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
-
   reveals.forEach(el => {
-    const elementTop = el.getBoundingClientRect().top;
-    const revealPoint = 120;
-
-    if (elementTop < windowHeight - revealPoint) {
+    const top = el.getBoundingClientRect().top;
+    if (top < windowHeight - 80) {
       el.classList.add("active");
     }
   });
@@ -69,3 +45,58 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
+/* ===== ACTIVE NAV LINK ===== */
+function setActiveNav() {
+  const currentPage =
+    window.location.pathname.split("/").pop() || "index.html";
+
+  // Desktop links
+  document.querySelectorAll(".desktop-nav a").forEach(link => {
+    const linkPage = link.getAttribute("href");
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    }
+  });
+
+  // Mobile links
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    const linkPage = link.getAttribute("href");
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    }
+  });
+}
+
+/* ===== HIDE HOME LINK ON HOME PAGE ===== */
+function hideHomeLinkOnHomePage() {
+  const currentPage =
+    window.location.pathname.split("/").pop() || "index.html";
+
+  if (currentPage === "index.html") {
+    // Desktop Home link
+    document
+      .querySelectorAll('.desktop-nav a[href="index.html"]')
+      .forEach(link => link.remove());
+
+    // Mobile Home link
+    document
+      .querySelectorAll('.mobile-menu a[href="index.html"]')
+      .forEach(link => link.remove());
+  }
+}
+
+/* =============================================
+   INDEX.HTML SPECIFIC CODE
+============================================= */
+
+/* ===== INTRO SPLASH HIDE ===== */
+window.addEventListener("load", () => {
+  const splash = document.getElementById("intro-splash");
+  if (splash) {
+    setTimeout(() => {
+      splash.style.opacity = "0";
+      splash.style.visibility = "hidden";
+    }, 1500);
+  }
+});
