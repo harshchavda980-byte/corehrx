@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login | MineHr Solutions</title>
+
+<style>
+:root{
+  --bg:#0f172a;
+  --card:#111827;
+  --primary:#2563eb;
+  --text:#ffffff;
+  --muted:#94a3b8;
+  --error:#f87171;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#020617,#0f172a);
+  font-family:Segoe UI, Arial, sans-serif;
+  color:var(--text);
+}
+
+.login-container{
+  width:100%;
+  max-width:380px;
+  padding:20px;
+}
+
+.login-box{
+  background:var(--card);
+  padding:35px 30px;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.brand{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.brand h1{
+  margin:0;
+  font-size:22px;
+  letter-spacing:.5px;
+}
+
+.brand p{
+  margin-top:5px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.input-group{
+  margin-top:15px;
+}
+
+.input-group label{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.input-group input{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border-radius:8px;
+  border:1px solid #1f2937;
+  background:#020617;
+  color:var(--text);
+  outline:none;
+}
+
+.input-group input:focus{
+  border-color:var(--primary);
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:22px;
+  border:none;
+  border-radius:8px;
+  background:var(--primary);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  background:#1d4ed8;
+}
+
+button:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+}
+
+.error{
+  color:var(--error);
+  font-size:13px;
+  margin-top:12px;
+  text-align:center;
+}
+
+.loader{
+  display:none;
+  margin:auto;
+  margin-top:15px;
+  width:22px;
+  height:22px;
+  border:3px solid #ffffff40;
+  border-top:3px solid #fff;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.footer{
+  text-align:center;
+  margin-top:18px;
+  font-size:12px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+  <div class="login-box">
+
+    <div class="brand">
+      <h1>MineHr Solutions</h1>
+      <p>Secure Master Panel Login</p>
+    </div>
+
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="admin@minehr.com">
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="••••••••">
+    </div>
+
+    <button id="loginBtn" onclick="login()">Login</button>
+    <div class="loader" id="loader"></div>
+    <div class="error" id="error"></div>
+
+    <div class="footer">
+      © 2026 MineHr Solutions
+    </div>
+
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCCmgWJY67GEiJFZgVFOdy5loBRvZ1-yQY",
+    authDomain: "my-website-backend-62788.firebaseapp.com",
+    projectId: "my-website-backend-62788",
+    appId: "1:799302822506:web:654449e7b3432685bdf813"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.login = async function(){
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const error = document.getElementById("error");
+    const loader = document.getElementById("loader");
+    const btn = document.getElementById("loginBtn");
+
+    error.innerText = "";
+
+    if(!email || !password){
+      error.innerText = "Please enter email and password";
+      return;
+    }
+
+    btn.disabled = true;
+    loader.style.display = "block";
+
+    try{
+      await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "index.html";
+    }catch(e){
+      error.innerText = e.message.replace("Firebase: ","");
+    }
+
+    btn.disabled = false;
+    loader.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
