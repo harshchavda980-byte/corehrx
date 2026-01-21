@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MineHR – Master Panel</title>
+  <title>MineHR — Master Panel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css" />
@@ -30,20 +30,101 @@
 
       <div class="has-dropdown">
         <div class="menu-item dropdown-toggle">
-          Companies <span class="arrow">▾</span>
+          User <span class="arrow">▾</span>
         </div>
         <div class="submenu">
-          <a onclick="loadPage('company-management', event)">Company Management</a>
-          <a onclick="loadPage('company-renewals', event)">Company Renewals</a>
+          <a onclick="loadPage('manage-user', event)">Manage user</a>
+          <a onclick="loadPage('add-user', event)">Add user</a>
+          <a onclick="loadPage('admins-roles', event)">Admins & Roles</a>
+        </div>
+      </div>
+
+      <a class="menu-item" onclick="loadPage('app-usage', event)">App Usage</a>
+
+      <div class="has-dropdown">
+        <div class="menu-item dropdown-toggle">
+          Company Management <span class="arrow">▾</span>
+        </div>
+        <div class="submenu">
+          <a onclick="loadPage('companies', event)">Companies</a>
+          <a onclick="loadPage('company-requests', event)">Company Requests</a>
+          <a onclick="loadPage('plans-expire', event)">Plans Expire</a>
           <a onclick="loadPage('employee-count', event)">Employee Count</a>
           <a onclick="loadPage('recent-activity', event)">Recent Activity</a>
         </div>
       </div>
 
-      <div class="sidebar-section">OPERATIONS</div>
-      <a class="menu-item" onclick="loadPage('payroll', event)">Payroll</a>
-      <a class="menu-item" onclick="loadPage('compliance', event)">Compliance</a>
-      <a class="menu-item" onclick="loadPage('reports', event)">Reports</a>
+      <div class="has-dropdown">
+        <div class="menu-item dropdown-toggle">
+          Company Request <span class="arrow">▾</span>
+        </div>
+        <div class="submenu">
+          <a onclick="loadPage('add-new-company', event)">Add New Company</a>
+          <a onclick="loadPage('new-company-request', event)">New Company request</a>
+          <a onclick="loadPage('created-company', event)">created company</a>
+          <a onclick="loadPage('rejected-company', event)">rejected company</a>
+          <a onclick="loadPage('my-company', event)">my company</a>
+        </div>
+      </div>
+
+      <div class="has-dropdown">
+        <div class="menu-item dropdown-toggle">
+          Operations <span class="arrow">▾</span>
+        </div>
+        <div class="submenu">
+          <a onclick="loadPage('tickets', event)">Tickets</a>
+          <a onclick="loadPage('escalations', event)">Escalations</a>
+          <a onclick="loadPage('feedback', event)">Feedback</a>
+        </div>
+      </div>
+
+      <div class="has-dropdown">
+        <div class="menu-item dropdown-toggle">
+          CRM <span class="arrow">▾</span>
+        </div>
+        <div class="submenu">
+          <a onclick="loadPage('leads', event)">Leads</a>
+          <a onclick="loadPage('demo-requests', event)">Demo Requests</a>
+        </div>
+      </div>
+
+      <div class="has-dropdown">
+        <div class="menu-item dropdown-toggle">
+          Reports <span class="arrow">▾</span>
+        </div>
+        <div class="submenu">
+          <a onclick="loadPage('xyz-reports', event)">XYZ reports(From above data)</a>
+        </div>
+      </div>
+
+      <div class="has-dropdown">
+        <div class="menu-item dropdown-toggle">
+          Country-State-City <span class="arrow">▾</span>
+        </div>
+        <div class="submenu">
+          <a onclick="loadPage('city', event)">city</a>
+          <a onclick="loadPage('state', event)">state</a>
+          <a onclick="loadPage('country', event)">country</a>
+        </div>
+      </div>
+
+      <a class="menu-item" onclick="loadPage('ats', event)">ATS</a>
+
+      <div class="has-dropdown">
+        <div class="menu-item dropdown-toggle">
+          Intimation automation <span class="arrow">▾</span>
+        </div>
+        <div class="submenu">
+          <a onclick="loadPage('whatsapp', event)">Whatsapp</a>
+          <a onclick="loadPage('gmail', event)">Gmail</a>
+          <a onclick="loadPage('sms', event)">SMS</a>
+        </div>
+      </div>
+
+      <a class="menu-item" onclick="loadPage('onboarding-process', event)">Onboarding process</a>
+      <a class="menu-item" onclick="loadPage('engagement-process', event)">Engagement Process</a>
+      <a class="menu-item" onclick="loadPage('manage-device', event)">Mange device</a>
+      <a class="menu-item" onclick="loadPage('settings', event)">Settings</a>
     </nav>
   </aside>
 
@@ -62,9 +143,27 @@
           <span class="moon">🌙</span>
           <div class="toggle-ball"></div>
         </div>
-        <div class="profile">
-          <span>Admin</span>
-          <img src="https://i.pravatar.cc/40" alt="Admin" />
+        <div class="profile" id="profileDropdown">
+          <div class="profile-trigger" onclick="toggleProfileMenu()">
+            <span>Admin</span>
+            <img src="https://i.pravatar.cc/40" alt="Admin" />
+          </div>
+          <div class="profile-menu">
+            <div class="profile-info">
+              <strong>Admin User</strong>
+              <p>admin@minehr.com</p>
+            </div>
+            <button class="profile-menu-item" onclick="loadPage('settings', event)">
+              <span>⚙️</span> Settings
+            </button>
+            <button class="profile-menu-item" onclick="window.location.reload()">
+              <span>🔄</span> Refresh
+            </button>
+            <div class="profile-divider"></div>
+            <button class="profile-menu-item danger" onclick="logout()">
+              <span>🚪</span> Logout
+            </button>
+          </div>
         </div>
       </div>
     </header>
@@ -79,15 +178,15 @@
 
       <div class="cards">
         <div class="card purple">
-         <h2 id="totalCompanies">0</h2>
+          <h3>Total Companies</h3>
           <p>48</p>
         </div>
         <div class="card blue">
-         <h2 id="employees">0</h2>
+          <h3>Total Employees</h3>
           <p>1,260</p>
         </div>
         <div class="card green">
-         <h3 id="activeClients">0</h3>
+          <h3>Active Clients</h3>
           <p>42</p>
         </div>
         <div class="card orange">
@@ -136,34 +235,37 @@
     </section>
   </main>
 </div>
-<script src="admin.js"></script>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+<!-- Load Firebase as module -->
+<script type="module" src="admin.js"></script>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCCmgWJY67GEiJFZgVFOdy5loBRvZ1-yQY",
-    authDomain: "my-website-backend-62788.firebaseapp.com",
-    projectId: "my-website-backend-62788",
-    appId: "1:799302822506:web:654449e7b3432685bdf813"
-  };
+<script>
+  // Profile dropdown toggle
+  function toggleProfileMenu() {
+    const profile = document.getElementById('profileDropdown');
+    if (profile) {
+      profile.classList.toggle('active');
+    }
+  }
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  // 🔐 PROTECT PAGE
-  onAuthStateChanged(auth, (user)=>{
-    if(!user){
-      window.location.href = "login.html";
+  // Close profile menu when clicking outside
+  document.addEventListener('click', function(event) {
+    const profile = document.getElementById('profileDropdown');
+    if (profile && !profile.contains(event.target)) {
+      profile.classList.remove('active');
     }
   });
 
-  // 🔓 LOGOUT FUNCTION
-  window.logout = async function(){
-    await signOut(auth);
-    window.location.href = "login.html";
-  }
+  // Prevent profile menu from closing when clicking inside it
+  document.addEventListener('DOMContentLoaded', function() {
+    const profileMenu = document.querySelector('.profile-menu');
+    if (profileMenu) {
+      profileMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  });
 </script>
+
 </body>
 </html>
