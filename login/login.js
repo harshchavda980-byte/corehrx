@@ -58,3 +58,6 @@ function verifyOTP() {
   })
   .catch(() => alert("Invalid OTP"));
 }
+if (!localStorage.getItem("token")) {
+  window.location.href = "index.html";
+}
