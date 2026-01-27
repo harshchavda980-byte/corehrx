@@ -39,6 +39,12 @@ a {
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
   --text-muted: #6b7280;
+  --bg:#0b1220;
+  --card:#111a2e;
+  --accent:#22d3ee;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --radius:18px;
 }
 
 /* =============================================
@@ -135,6 +141,31 @@ a {
   transform: rotate(90deg);
 }
 
+/* Show mobile toggle and hide desktop nav on mobile */
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .desktop-nav {
+    display: none;
+  }
+  
+  /* Center logo on mobile */
+  .header {
+    justify-content: center;
+  }
+  
+  .mobile-toggle {
+    position: absolute;
+    left: 20px;
+  }
+  
+  .nav-center {
+    margin: 0;
+  }
+}
+
 /* ===== MOBILE MENU ===== */
 .mobile-menu {
   position: fixed;
@@ -151,6 +182,10 @@ a {
   padding: 20px;
   gap: 12px;
   z-index: 999;
+}
+
+.mobile-menu.open {
+  display: flex;
 }
 
 .mobile-menu a {
@@ -361,7 +396,13 @@ a {
     padding: 8px 14px;
     font-size: 12px;
   }
-}media (max-width: 768px) {
+
+  .services {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -430,18 +471,25 @@ a {
 
 /* =============================================
    6. COMMON CARD STYLES
+   All card-type elements (.card, .step, .job-card, .trust-card, .trust-metric,
+   .process-step, .trust-testimonial) have a unified hover effect with a purple
+   left border (6px solid var(--primary)) for visual consistency across all pages.
 ============================================= */
 .card {
   background: #fff;
   border-radius: 14px;
   padding: 30px;
+  padding-left: 30px;
   border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid transparent;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  border-left-color: var(--primary);
 }
 
 .card h4 {
@@ -483,12 +531,18 @@ a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, background-color 0.3s ease;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .btn-outline:hover {
-  background: var(--primary);
-  color: #ffffff;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
 }
 
 .btn-white {
@@ -544,6 +598,10 @@ a {
   color: var(--primary);
 }
 
+.career-hero .btn-primary {
+  margin-top: 14px;
+}
+
 /* =============================================
    9. COMMON TIMELINE/PROCESS STYLES
 ============================================= */
@@ -557,14 +615,18 @@ a {
 .timeline .step {
   background: #fff;
   padding: 26px;
+  padding-left: 26px;
   border-radius: 14px;
   border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid transparent;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
 .timeline .step:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border-left-color: var(--primary);
 }
 
 .timeline span {
@@ -644,12 +706,15 @@ a {
   border-radius: 16px;
   border: 1px solid var(--border);
   font-size: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left 0.3s ease, padding-left 0.3s ease;
 }
 
 .trust-testimonial:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border-left: 6px solid var(--primary);
+  padding-left: 26px;
 }
 
 .trust-testimonial strong {
@@ -696,16 +761,24 @@ a {
   transform: translateY(0);
 }
 
-.delay-1 {
+
+.reveal.delay-1 {
   transition-delay: 0.15s;
 }
 
-.delay-2 {
+.reveal.delay-2 {
   transition-delay: 0.3s;
 }
 
-.delay-3 {
+.reveal.delay-3 {
   transition-delay: 0.45s;
+}
+
+/* Remove transition-delay once revealed */
+.reveal.active.delay-1,
+.reveal.active.delay-2,
+.reveal.active.delay-3 {
+  transition-delay: 0s;
 }
 
 /* =============================================
@@ -726,7 +799,7 @@ a {
 .mb-4 { margin-bottom: 32px; }
 
 /* =============================================
-   15. SERVICES PAGE SPECIFIC STYLES
+   15. SERVICES PAGE SPECIFIC STYLES (UPDATED)
 ============================================= */
 
 /* Hero Content */
@@ -734,35 +807,118 @@ a {
   max-width: 700px;
 }
 
-/* Services Grid */
-.services-grid {
+/* Services Grid - UPDATED: 3 BOXES PER ROW, RECTANGLE SHAPE */
+.services {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 8%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
+@media (min-width: 1200px) {
+  .services {
+    padding: 0;
+  }
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 992px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 576px) {
+  .services {
+    grid-template-columns: 1fr;
+    padding: 0 5%;
+  }
+}
+
 .service-card {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  padding: 28px;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(180deg, var(--card), #0b1326);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  will-change: background, border-color, box-shadow;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(300px circle at var(--x, 50%) var(--y, 50%), rgba(99, 102, 241, 0.12), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.service-card:hover::before {
+  opacity: 1;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+  background: linear-gradient(180deg, #1a2540, #0f1a30);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  font-size: 24px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
 }
 
 .service-card h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 18px;
+  margin-bottom: 8px;
   font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
 }
 
 .service-card p {
   font-size: 14px;
-  color: #555;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.service-card button {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  transition: .3s;
+  font-size: 13px;
+  align-self: flex-start;
+}
+
+.service-card button:hover {
+  background: var(--accent);
+  color: #020617;
+  transform: translateX(4px);
 }
 
 /* Services Timeline Section */
@@ -792,6 +948,16 @@ a {
   margin: 40px auto 0;
 }
 
+/* Ensure hero-actions buttons work properly */
+.hero-actions .btn-outline:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
 /* Trust Strip */
 .trust-strip {
   background: #ffffff;
@@ -817,16 +983,20 @@ a {
 }
 
 .job-card {
+  position: relative;
   background: #fff;
   border-radius: 16px;
   padding: 30px;
+  padding-left: 30px;
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
+  border-left: 6px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
 .job-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary);
 }
 
 .job-card h4 {
@@ -877,16 +1047,20 @@ a {
 }
 
 .trust-metric {
+  position: relative;
   background: #fff;
   border: 1px solid var(--border);
   padding: 32px 20px;
+  padding-left: 26px;
   border-radius: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
 .trust-metric:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  border-left-color: var(--primary);
 }
 
 .trust-metric strong {
@@ -911,16 +1085,20 @@ a {
 }
 
 .trust-card {
+  position: relative;
   background: #fff;
   border: 1px solid var(--border);
   padding: 30px;
+  padding-left: 30px;
   border-radius: 16px;
-  transition: all 0.3s ease;
+  border-left: 6px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
 .trust-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary);
 }
 
 .trust-card h4 {
@@ -946,16 +1124,20 @@ a {
 }
 
 .process-step {
+  position: relative;
   background: #fff;
   border-radius: 16px;
   padding: 30px;
+  padding-left: 30px;
   border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
 .process-step:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border-left-color: var(--primary);
 }
 
 .process-step span {
@@ -1112,158 +1294,13 @@ a {
   border-radius: 30px;
   font-size: 14px;
   font-weight: 500;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+  text-decoration: none;
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .whatsapp-cta:hover {
-  background: #16a34a;
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 35px rgba(34, 197, 94, 0.4);
 }
-
-/* =============================================
-   19. LOGO SIZE ADJUSTMENTS (UPDATED)
-============================================= */
-
-/* Header Logo - Reduced size to fit header height */
-.header .nav-center img,
-.header .logo {
-  height: 42px !important;
-  width: auto !important;
-  object-fit: contain !important;
-  max-width: 160px !important;
-}
-
-/* Footer Logo */
-.footer-brand img,
-.footer-brand .logo {
-  height: 80px !important;
-  width: auto !important;
-  object-fit: contain !important;
-  max-width: 250px !important;
-}
-
-/* =============================================
-   20. RESPONSIVE DESIGN
-============================================= */
-
-@media (max-width: 900px) {
-  .hero h1,
-  .career-hero h1,
-  .trust-hero h1,
-  .contact-hero h1 {
-    font-size: 32px;
-  }
-
-  .section-title {
-    font-size: 26px;
-  }
-
-  .career-cta h2,
-  .trust-cta h2 {
-    font-size: 26px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Contact page responsive */
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
-
-  .hero,
-  .career-hero,
-  .trust-hero,
-  .contact-hero {
-    padding: 90px 0 60px;
-  }
-
-  .career-cta,
-  .trust-cta {
-    padding: 60px 0;
-  }
-
-  /* Services page responsive */
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Trust page responsive */
-  .trust-metrics-grid,
-  .trust-grid,
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .trust-cert-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Header responsive */
-  .desktop-nav {
-    display: none;
-  }
-
-  .mobile-toggle {
-    display: block;
-    order: 1;
-  }
-
-  .header {
-    justify-content: center;
-  }
-
-  .nav-center {
-    order: 2;
-    flex: 1;
-    justify-content: center;
-  }
-
-  /* Mobile logo adjustments */
-  .header .nav-center img,
-  .header .logo {
-    height: 36px !important;
-    max-width: 140px !important;
-  }
-
-  .footer-brand img,
-  .footer-brand .logo {
-    height: 70px !important;
-    max-width: 220px !important;
-  }
-
-  /* Mobile menu responsive */
-  .mobile-menu {
-    display: none;
-    flex-direction: row;
-  }
-
-  .mobile-menu.open {
-    display: flex;
-  }
-
-  .mobile-menu a {
-    flex: 0 0 auto;
-  }
-
-  .mobile-menu .demo-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-}
-
